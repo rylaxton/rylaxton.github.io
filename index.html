@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Your Name] — Engineering Portfolio</title>
+  <meta name="description" content="Engineering portfolio of [Your Name]: mechanical systems design, electromechanical systems, testing, prototyping, and engineering problem solving.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ SITE HEADER ============================ -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-mark" href="index.html">[Your Name]</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================== HERO =============================== -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>[Your Name]</h1>
+      <p class="lead">Engineer focused on mechanical systems design, electromechanical systems,
+        testing, prototyping, and engineering problem solving.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#projects">View projects</a>
+        <a class="btn" href="resume.pdf">Resume (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
+        <a class="btn" href="mailto:your.email@example.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ABOUT ============================== -->
+  <section class="band band--tint" id="about">
+    <div class="wrap">
+      <div class="section-head"><h2>About</h2></div>
+      <div class="prose">
+        <!-- Edit these two paragraphs freely. Keep them factual. -->
+        <p>I am an engineer who works across mechanical design, electrical systems, testing,
+          prototyping, and hands-on troubleshooting. My projects span the full path from
+          requirements and concept development through CAD, component selection, fabrication,
+          instrumentation, and test.</p>
+        <p>[Add 2&ndash;4 sentences in your own words: the kind of engineering work you are
+          strongest at, the environments you have worked in (coursework, internship, lab,
+          shop, industry), and the type of role you are looking for.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PROJECTS ============================ -->
+  <section class="band" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Engineering projects</h2>
+        <p>Ten projects across mechanical design, electrical and test engineering, and
+          systems work. Each page covers the problem, my role, the engineering process,
+          technical details, and results.</p>
+      </div>
+
+      <!-- Filter buttons. The value must match a word in a card's data-groups. -->
+      <div class="filters" role="group" aria-label="Filter projects by discipline">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="mechanical" aria-pressed="false">Mechanical</button>
+        <button class="filter" type="button" data-filter="electrical" aria-pressed="false">Electrical / Test</button>
+        <button class="filter" type="button" data-filter="other" aria-pressed="false">Other engineering</button>
+      </div>
+      <p class="filter-count" id="filter-count" aria-live="polite">Showing all 10 projects</p>
+
+      <ul class="project-grid" id="project-grid">
+      <li class="card" data-groups="mechanical other">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Mechanical Design</li>
+            <li class="tag">Prototyping</li>
+          </ul>
+          <h3>[Project 1 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-01.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="mechanical">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Mechanical Design</li>
+          </ul>
+          <h3>[Project 2 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-02.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="mechanical electrical other">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Electromechanical</li>
+            <li class="tag">Prototyping</li>
+          </ul>
+          <h3>[Project 3 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-03.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="electrical">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Electrical</li>
+            <li class="tag">Test Engineering</li>
+          </ul>
+          <h3>[Project 4 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-04.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="electrical">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Test Engineering</li>
+          </ul>
+          <h3>[Project 5 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-05.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="mechanical electrical">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Mechanical Design</li>
+            <li class="tag">Test Engineering</li>
+          </ul>
+          <h3>[Project 6 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-06.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="electrical other">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Systems Engineering</li>
+            <li class="tag">Test Engineering</li>
+          </ul>
+          <h3>[Project 7 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-07.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="mechanical other">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Prototyping</li>
+            <li class="tag">Mechanical Design</li>
+          </ul>
+          <h3>[Project 8 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-08.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="electrical">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Electrical</li>
+            <li class="tag">Test Engineering</li>
+          </ul>
+          <h3>[Project 9 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-09.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card" data-groups="mechanical other">
+        <figure class="card-figure">
+          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Systems Engineering</li>
+            <li class="tag">Mechanical Design</li>
+          </ul>
+          <h3>[Project 10 title]</h3>
+          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <a class="btn" href="projects/project-10.html">View project</a>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== SKILLS ============================= -->
+  <section class="band band--tint" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills and tools</h2>
+        <p>Replace anything below that does not apply to you, and delete the rest.</p>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Mechanical</h3>
+          <ul>
+            <li>CAD modeling and assemblies</li>
+            <li>Mechanical design</li>
+            <li>Design for manufacturing</li>
+            <li>Prototyping</li>
+            <li>Fabrication and machining</li>
+            <li>Technical drawings and GD&amp;T</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Electrical and test</h3>
+          <ul>
+            <li>Sensors and signal conditioning</li>
+            <li>Instrumentation</li>
+            <li>Wiring and harnessing</li>
+            <li>Data acquisition</li>
+            <li>Electrical troubleshooting</li>
+            <li>Test setup development</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Engineering</h3>
+          <ul>
+            <li>Requirements definition</li>
+            <li>Testing and validation</li>
+            <li>Root-cause analysis</li>
+            <li>Technical documentation</li>
+            <li>Experimental design</li>
+            <li>Design reviews</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Software and tools</h3>
+          <ul>
+            <li>[CAD software, e.g. SolidWorks]</li>
+            <li>[Analysis or FEA software]</li>
+            <li>[Programming languages]</li>
+            <li>[Data analysis tools]</li>
+            <li>[Test or DAQ software]</li>
+            <li>[Lab equipment you are fluent with]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== RESUME ============================= -->
+  <section class="band band--tight" id="resume">
+    <div class="wrap">
+      <div class="section-head"><h2>Resume</h2></div>
+      <p>Full experience, education, and technical skills in one page.</p>
+      <div class="actions mt-4">
+        <a class="btn btn--primary btn--wide" href="resume.pdf">Open resume (PDF)</a>
+        <a class="btn btn--wide" href="resume.pdf" download>Download</a>
+      </div>
+      <p class="note mt-2">Put your PDF in the main folder and name it
+        <code>resume.pdf</code> to make these buttons work.</p>
+    </div>
+  </section>
+
+  <!-- ============================= CONTACT ============================= -->
+  <section class="band band--tint" id="contact">
+    <div class="wrap">
+      <div class="section-head"><h2>Contact</h2></div>
+      <dl class="contact-list">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:your.email@example.com">your.email@example.com</a></dd>
+        </div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/your-profile">linkedin.com/in/your-profile</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/your-username">github.com/your-username</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>[Your Name] &mdash; engineering portfolio</span>
+    <span>[City, State] &middot; Updated [Month Year]</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

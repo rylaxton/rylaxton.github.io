@@ -1,0 +1,506 @@
+/* ==========================================================================
+   Engineering portfolio — single stylesheet
+   Edit the values in :root below to change colors, spacing, and fonts
+   everywhere on the site at once.
+   ========================================================================== */
+
+:root {
+  --paper: #ffffff;
+  --surface: #f4f5f7;
+  --ink: #1b2127;
+  --ink-2: #4a555f;
+  --ink-3: #78828b;
+  --line: #dcdfe3;
+  --line-strong: #b9bfc6;
+  --accent: #1c5878;
+  --accent-dark: #14415a;
+  --accent-tint: #eaf0f4;
+
+  --font-head: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-data: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius: 3px;
+  --maxw: 1120px;
+  --gap: 2rem;
+}
+
+/* --- reset ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-synthesis: none;
+}
+
+img { max-width: 100%; display: block; }
+
+[hidden] { display: none !important; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--accent-dark); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- typography ---------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); }
+h2 { font-size: clamp(1.45rem, 2.6vw, 1.85rem); }
+h3 { font-size: 1.1rem; letter-spacing: 0; }
+h4 { font-size: 0.95rem; letter-spacing: 0; }
+
+p { margin: 0 0 1rem; max-width: 70ch; }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+
+.note {
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+/* --- layout -------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.band { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.band--tint { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.band--tight { padding: clamp(2.5rem, 5vw, 3.5rem) 0; }
+
+.section-head { margin-bottom: 2rem; }
+.section-head p { margin-top: 0.6rem; color: var(--ink-2); }
+
+/* --- site header --------------------------------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.site-mark {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.site-mark:hover { color: var(--accent); }
+
+.site-nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-family: var(--font-head);
+  font-size: 0.925rem;
+}
+.site-nav a { color: var(--ink-2); text-decoration: none; }
+.site-nav a:hover { color: var(--accent); text-decoration: underline; }
+
+/* --- hero ---------------------------------------------------------------- */
+
+.hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.hero h1 { margin-bottom: 1.25rem; }
+.hero .lead { margin-bottom: 2rem; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+
+.btn--wide { padding: 0.85rem 1.6rem; font-size: 1rem; }
+
+/* --- about --------------------------------------------------------------- */
+
+.prose p { margin-bottom: 1.1rem; }
+
+/* --- project filters ----------------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.filter {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.filter:hover { border-color: var(--line-strong); color: var(--ink); }
+.filter[aria-pressed="true"] {
+  background: var(--accent-tint);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.filter-count {
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+  margin: 0 0 1.75rem;
+}
+
+/* --- project grid -------------------------------------------------------- */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+.card:hover { border-color: var(--line-strong); }
+
+.card-figure {
+  margin: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.card-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.25rem 1.35rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.card-body h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+.card-body p { margin: 0; font-size: 1rem; color: var(--ink-2); max-width: none; }
+.card-body .btn { align-self: flex-start; margin-top: auto; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  line-height: 1;
+  padding: 0.35rem 0.5rem;
+  border-radius: 2px;
+  background: var(--accent-tint);
+  color: var(--accent-dark);
+}
+
+/* --- skills -------------------------------------------------------------- */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+}
+.skill-card h3 { margin-bottom: 0.9rem; }
+.skill-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+}
+.skill-card li {
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+.skill-card li:first-child { border-top: 0; padding-top: 0; }
+
+/* --- contact ------------------------------------------------------------- */
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 1.25rem;
+}
+.contact-list dd { margin: 0; }
+.contact-list dt,
+.contact-label {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  margin-bottom: 0.2rem;
+}
+
+/* --- small spacing helpers ---------------------------------------------- */
+
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.25rem; }
+
+/* --- footer -------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  color: var(--ink-3);
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Project pages
+   ========================================================================== */
+
+.project-head { padding: clamp(2.5rem, 6vw, 4rem) 0 2rem; }
+.project-head .tags { margin-bottom: 1rem; }
+.project-head h1 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); margin-bottom: 1rem; }
+.project-head .lead { max-width: 62ch; margin: 0; }
+
+.backlink {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.doc {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 900px) {
+  .doc { grid-template-columns: minmax(0, 1fr) 17rem; }
+  .doc-aside { position: sticky; top: 2rem; align-self: start; }
+}
+
+.doc-main > section { margin-bottom: clamp(2.25rem, 4vw, 3rem); }
+.doc-main > section:last-child { margin-bottom: 0; }
+.doc-main h2 {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.1rem;
+}
+.doc-main h3 { margin: 1.5rem 0 0.5rem; }
+
+/* meta / spec tables */
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.spec-table caption {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.spec-table th {
+  font-family: var(--font-head);
+  font-weight: 500;
+  color: var(--ink-2);
+  width: 42%;
+}
+.spec-table td { font-family: var(--font-data); font-size: 0.875rem; color: var(--ink); }
+.spec-table tr:first-child th,
+.spec-table tr:first-child td { border-top: 1px solid var(--line); }
+
+.doc-aside .spec-table th { width: 45%; }
+
+/* process list — a real sequence, so it is numbered */
+
+.process {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+}
+.process li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1rem 2.6rem;
+  max-width: 68ch;
+}
+.process li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-family: var(--font-data);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.process strong { font-family: var(--font-head); font-weight: 600; }
+
+/* plain bulleted lists inside project pages */
+
+.doc-main ul:not(.tags):not(.process) { padding-left: 1.2rem; max-width: 70ch; }
+.doc-main ul:not(.tags):not(.process) li { margin-bottom: 0.4rem; }
+.doc-main ol:not(.process) { padding-left: 1.4rem; max-width: 70ch; }
+.doc-main ol:not(.process) li { margin-bottom: 0.4rem; }
+
+/* figures */
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.75rem;
+}
+.figure-grid figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+}
+.figure-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.figure-grid figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.925rem;
+  color: var(--ink-2);
+}
+
+/* prev / next */
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  font-family: var(--font-head);
+  font-size: 0.925rem;
+}
+
+/* --- motion preference --------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
