@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ME 104 Final Project &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <title>Motor-Driven Impulse Machine (ME 104) &mdash; Ryan Laxton</title>
+  <meta name="description" content="A 153 g motor-driven lever machine that delivered 1,214 N&middot;s of impulse to two slowly separating platens, designed by holding a characterized DC motor at its maximum power point across the full stroke.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -37,8 +37,10 @@
       <li class="tag">Prototyping</li>
       <li class="tag">Test Engineering</li>
     </ul>
-    <h1>ME 104 Final Project</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <h1>Motor-Driven Impulse Machine (ME 104)</h1>
+    <p class="lead">A 153 g motor-driven lever machine that delivered 1,214 N&middot;s of impulse
+      to two slowly separating surfaces, designed by characterizing the supplied DC motor and
+      holding it at its maximum power point for the full 10-second stroke.</p>
   </header>
 
   <div class="doc">
@@ -48,126 +50,305 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>The brief framed the machine as a separation launch unit: a habitat and a spent
+          booster stage drift apart slowly, and the machine has one chance to push off the
+          booster to trim the habitat's trajectory. Concretely, it had to apply the largest
+          possible vertical impulse to two surfaces separating at a constant 5 mm/s over a 50 mm
+          stroke, lasting 10 seconds, while weighing as little as possible. A single supplied
+          brushed DC motor and planetary gearbox were the only permitted source of mechanical
+          energy, with no stored strain energy allowed.</p>
+        <p>Our machine is a three-legged 3D printed frame that stands on the lower platen, a
+          waterjet-cut aluminum lever pivoting near the top of the frame, and a cord wound onto
+          a printed capstan on the gearbox output shaft. The motor reels in the cord, which
+          rotates the lever about its pivot so the wide end bears upward against the pin coupler
+          as the two surfaces separate. The transmission is therefore motor to gearbox to
+          capstan to cord to lever to coupler, with the capstan radius and the lever geometry
+          setting the overall ratio between motor speed and separation speed.</p>
       </section>
 
       <section>
         <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <p>The separation velocity is fixed by the test, not by the machine. That single fact
+          reshapes the problem: since impulse is the integral of force over time and the
+          surfaces move at a constant 5 mm/s, impulse equals the work done divided by that
+          velocity. Maximizing impulse is therefore identical to maximizing the average
+          mechanical power delivered over the 10 seconds.</p>
+        <p>So the design target was not raw strength. It was to keep the motor sitting at its
+          maximum power point for the entire stroke, choose a transmission geometry that holds
+          it there as the lever sweeps through its range, and then wrap the lightest possible
+          structure around it that survives the resulting loads.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li>Maximize vertical impulse over a 50 mm stroke at 5 mm/s while minimizing machine
+            mass</li>
+          <li>Use only the supplied Mabuchi RC-260SA-2295 brushed DC motor and Tamiya planetary
+            gearbox; no stored strain energy</li>
+          <li>Stay at or below 2.5 V applied, and keep current low enough that the motor does
+            not overheat across a 10-second run</li>
+          <li>Keep gearbox output torque under the roughly 1 N&middot;m at which the output shaft
+            spring pin is known to shear or buckle</li>
+          <li>Contact the lower platen only on its outer annulus, and never intrude into the
+            region above the pin coupler, even under load-induced deflection</li>
+          <li>No yielding or buckling of the frame, lever, or motor mount under the reaction
+            loads</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>This was a three-person project. I led the back-of-the-envelope structural analysis,
+          the CAD, the fabrication, and the testing. Motor characterization was done
+          collectively. One teammate owned the kinematic optimization that selected the link
+          lengths and capstan radius; the other owned mass optimization and led material
+          selection, which I contributed to.</p>
+        <p>Concretely, the free body diagrams of the frame, lever, and motor mount are mine, as
+          is the inverse analysis that sized each member for minimum mass against yielding and
+          buckling. I built the CAD model, printed the frame and capstan, had the lever waterjet
+          cut, assembled the machine, and ran it on the test system.</p>
       </section>
 
       <section>
         <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Requirements.</strong> Reduced the brief to a two-term objective &mdash;
+            impulse up, mass down &mdash; plus a constraint set covering the fixed separation
+            profile, the supplied motor and gearbox, the voltage and thermal limits, the gearbox
+            output torque limit, and the platen contact geometry.</li>
+          <li><strong>Motor characterization.</strong> The supplied spec sheet was known to be
+            inaccurate, so we measured the motor ourselves: winding resistance 0.7193 &Omega;,
+            torque constant 0.002338 N&middot;m/A, internal friction torque 0.0005845
+            N&middot;m, and gearbox efficiency 39.16%. Every downstream number rests on these
+            four values, which is why they were measured rather than assumed.</li>
+          <li><strong>Set point selection.</strong> Using the standard DC motor relations
+            <code>T = K&middot;i</code> and <code>V = K&middot;&omega; + iR</code> with the
+            measured friction torque subtracted, the mechanical power output peaks at 496.19
+            rad/s and 0.00377 N&middot;m of load torque at 2.5 V. That became the target motor
+            speed, and the gearbox was configured at 400:1.</li>
+          <li><strong>Kinematic optimization.</strong> Owned by a teammate. The mechanism was
+            swept across link lengths, capstan radius, pivot position, and tip radius. For each
+            candidate, the required motor speed was computed across the whole stroke from the
+            cord payout rate, then scored by RMS error against the 496.19 rad/s target, so the
+            winning geometry is the one that holds the motor nearest maximum power for the
+            longest. Candidates that let the lever intrude into the platen's non-contact region
+            were rejected outright.</li>
+          <li><strong>Structural analysis.</strong> Mine. Free body diagrams of the complete
+            frame, the lever alone, and the motor mount in two views, solved for member loads
+            driven by the cord tension and the coupler reaction. The motor mount analysis is
+            what determined how the gearbox had to be constrained rather than simply clamped.</li>
+          <li><strong>Inverse analysis for mass.</strong> Rather than checking a guessed section,
+            I inverted each failure criterion to solve for the smallest section that survives:
+            axial stress <code>&sigma; = F/A</code>, bending <code>&sigma; = My/I</code>, and
+            Euler buckling <code>P = c&pi;&sup2;EI/L&sup2;</code>. For the lever at 2 mm wide,
+            a maximum moment of 6,812 N&middot;mm against a 72.5 MPa allowable requires 16.79 mm
+            of height.</li>
+          <li><strong>Material selection.</strong> Compared candidates on minimum-mass material
+            indices &mdash; <code>&rho;/&sigma;y</code> for axial loading,
+            <code>&rho;/&sigma;y<sup>2/3</sup></code> for bending, and
+            <code>&rho;/E<sup>1/2</sup></code> for buckling &mdash; read against a
+            strength-density chart. Aluminum won for the bending-dominated lever; printed PLA
+            was retained for the compression and buckling members, where it is competitive by
+            index and free to shape.</li>
+          <li><strong>CAD.</strong> Modeled the assembly in Fusion 360: printed tripod legs with
+            thin tension braces, the printed motor and capstan mounts, and the flat aluminum
+            lever profile for waterjet cutting.</li>
+          <li><strong>FEA.</strong> Applied the BOTEA loads &mdash; coupler on lever, cord on
+            lever, cord on motor &mdash; with constraints at the motor-to-stand, stand-to-platen,
+            and shaft-to-frame and lever interfaces, and checked stress, displacement, and
+            buckling modes for each custom part.</li>
+          <li><strong>Iteration.</strong> Two changes came out of that loop. A large interior
+            cutout was removed from the lever, cutting mass from a part whose bending stress is
+            concentrated at its edges. And a simple support was added on the far side of the
+            capstan, so cord tension is reacted on both sides of the shaft instead of
+            cantilevering it off the gearbox output. FEA was re-run on the final geometry.</li>
+          <li><strong>Fabrication.</strong> Printed the frame and capstan in PLA, had the lever
+            waterjet cut from aluminum plate, and assembled the machine.</li>
+          <li><strong>Testing.</strong> Weighed and geometry-checked the machine, then ran it on
+            the MTS load frame while reaction force was recorded across the 50 mm separation and
+            integrated to give impulse.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>Measured motor and transmission parameters</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>Characterized values, all measured rather than taken from the spec sheet</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Motor</th><td>Mabuchi RC-260SA-2295 brushed DC</td></tr>
+            <tr><th scope="row">Winding resistance</th><td>0.7193 &Omega;</td></tr>
+            <tr><th scope="row">Torque constant</th><td>0.002338 N&middot;m/A</td></tr>
+            <tr><th scope="row">Internal friction torque</th><td>0.0005845 N&middot;m</td></tr>
+            <tr><th scope="row">Gearbox</th><td>Tamiya planetary, 400:1</td></tr>
+            <tr><th scope="row">Gearbox efficiency</th><td>39.16%</td></tr>
+            <tr><th scope="row">Applied voltage</th><td>2.5 V</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
-        <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
-        </ul>
+        <h3>Design point and predicted performance</h3>
+        <table class="spec-table">
+          <caption>Selected operating point and model output</caption>
+          <tbody>
+            <tr><th scope="row">Separation profile</th><td>150 to 200 mm, 50 mm at 5 mm/s over 10 s</td></tr>
+            <tr><th scope="row">Target motor speed</th><td>496.19 rad/s (max mechanical power)</td></tr>
+            <tr><th scope="row">Load torque at set point</th><td>0.00377 N&middot;m, 1.87 W at the shaft</td></tr>
+            <tr><th scope="row">Output torque at stroke start</th><td>0.750 N&middot;m</td></tr>
+            <tr><th scope="row">Margin to spring pin limit</th><td>1.33&times; (pin shears near 1 N&middot;m)</td></tr>
+            <tr><th scope="row">Motor current over the run</th><td>2.3 A falling to 1.4 A</td></tr>
+            <tr><th scope="row">Predicted average motor speed</th><td>449.72 rad/s, 90.6% of target</td></tr>
+            <tr><th scope="row">Predicted impulse</th><td>1,397.76 N&middot;s</td></tr>
+          </tbody>
+        </table>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>As-built and measured</h3>
+        <table class="spec-table">
+          <caption>Test day results</caption>
+          <tbody>
+            <tr><th scope="row">Measured impulse</th><td>1,214 N&middot;s</td></tr>
+            <tr><th scope="row">Fraction of prediction</th><td>86.9%</td></tr>
+            <tr><th scope="row">Mean force</th><td>125 N</td></tr>
+            <tr><th scope="row">Peak force</th><td>153 N at 26 mm of travel</td></tr>
+            <tr><th scope="row">Machine mass</th><td>153 g</td></tr>
+            <tr><th scope="row">Impulse per unit mass</th><td>7,935 N&middot;s/kg</td></tr>
+            <tr><th scope="row">Geometry compliance</th><td>Pass</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Structural analysis and sizing</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
+          <li>Free body diagrams of the full frame, the lever, and the motor mount in side and
+            top views, solved for member loads from cord tension and the coupler reaction</li>
+          <li>Three failure modes checked on every custom member: axial stress, bending stress,
+            and Euler buckling</li>
+          <li>Inverse analysis solving each criterion for the minimum surviving section at a
+            factor of safety of 2, rather than iterating on guessed geometry</li>
+          <li>Lever sizing: 6,812 N&middot;mm maximum moment, 72.5 MPa allowable from a 145 MPa
+            yield at FoS 2, giving 16.79 mm of required height at 2 mm width</li>
+          <li>Cord tension derived from available output torque and capstan radius, then carried
+            through the lever moment arm to the force delivered at the coupler</li>
         </ul>
 
         <h3>Materials and manufacturing</h3>
         <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>Lever: 6061 aluminum plate, waterjet cut, with a large interior cutout for mass
+            reduction [confirm the temper]</li>
+          <li>Frame, motor mount, and capstan: FDM 3D printed PLA</li>
+          <li>Transmission: braided cord wound on the printed capstan</li>
+          <li>Catalog components: supplied Tamiya 72001 motor and planetary gearbox kit,
+            fasteners and shafting</li>
         </ul>
 
         <h3>Software and tools</h3>
         <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
+          <li>Fusion 360 for CAD and finite element analysis</li>
+          <li>Python for the system model, kinematic sweep, and performance plots</li>
+          <li>FDM 3D printing and waterjet cutting for fabrication</li>
+          <li>MTS load frame for force measurement during the separation test</li>
         </ul>
 
         <h3>Test procedure</h3>
         <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
+          <li>Weigh the machine and check it against the geometric constraints</li>
+          <li>Install it on the lower platen with the lever bearing on the pin coupler, contact
+            restricted to the permitted annulus</li>
+          <li>Energize the motor at 2.5 V and allow the brief pre-separation period</li>
+          <li>Run the 50 mm separation at a constant 5 mm/s for 10 seconds while recording
+            reaction force</li>
+          <li>Integrate force over time to obtain delivered impulse</li>
+          <li>Inspect the machine for yielding, buckling, or transmission damage</li>
         </ol>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>Delivered <strong>1,214 N&middot;s of impulse at 153 g</strong>, for 7,935
+            N&middot;s per kilogram of machine mass, and passed the geometric compliance
+            check</li>
+          <li>That is 86.9% of the 1,397.76 N&middot;s the system model predicted, a 13%
+            shortfall</li>
+          <li>Measured force rose to a 153 N peak at roughly 26 mm of travel and averaged 125 N
+            across the stroke</li>
+          <li>End to end, 32.4% of the motor's mechanical shaft power reached the platen as
+            work. The 39.16% gearbox is the dominant loss, which is why the set point was chosen
+            to maximize shaft power rather than to chase transmission efficiency</li>
+          <li>The tension line broke on the first run. We replaced it with a stronger line and
+            retested immediately, and that second run produced the recorded result &mdash; the
+            failure cost us a run, not the project</li>
+          <li>The most likely cause of the shortfall is capstan deflection under cord tension,
+            visible on post-test inspection. Even with the added simple support, the printed
+            capstan and its shaft flexed enough to change the effective radius and add friction,
+            both of which pull delivered impulse down. This is a post-test hypothesis, not an
+            instrumented root cause</li>
+          <li>No yielding or buckling of the frame, lever, or mounts was observed after
+            testing</li>
+          <li>[Add the award or grade outcome if you placed in mass efficiency, maximum impulse,
+            or presentation.]</li>
+          <li>[Add the peak stress and buckling load factor from the FEA re-run on the final
+            geometry.]</li>
         </ul>
+
+        <h3>Limitations</h3>
+        <ul>
+          <li>The gap between predicted and measured impulse was never instrumented. Capstan
+            deflection is the best explanation from visual inspection, but cord stretch, wrap
+            slip, and error in the measured gearbox efficiency were not separated out</li>
+          <li>Gearbox efficiency was characterized as a single number and treated as constant
+            across the speed range, when in reality it varies with load and speed</li>
+          <li>One successful run, so there is no measure of run-to-run variance</li>
+          <li>The selected link lengths, capstan radius, and pivot coordinates were not recorded
+            after the project closed out, so the geometry cannot be reproduced from this write-up
+            alone</li>
+        </ul>
+
         <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+        <p>The useful insight came early and was almost entirely about problem framing: because
+          the separation speed was fixed, impulse reduced to average power, and the whole design
+          became an exercise in parking the motor at its power peak and building the lightest
+          structure that could stand it. Everything else followed from that. The lesson from test
+          day was the opposite in character &mdash; the 13% we lost was not in the analysis but
+          in a printed part flexing under load, which no free body diagram was ever going to
+          catch. Next time I would put a stiffer or metal capstan on the critical torque path
+          from the start.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Replace these with your own exports and photos, keeping the filenames
+             or updating the src attributes to match what you upload. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+            <img src="../images/me104-machine.jpg" alt="The assembled machine: printed tripod frame with an aluminum lever and side-mounted motor">
+            <figcaption>Figure 1. The as-tested machine. Printed PLA tripod frame with thin
+              tension braces, waterjet aluminum lever pivoting at the top, and the motor and
+              gearbox mounted low to keep the reaction path short.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+            <img src="../images/me104-force-displacement.png" alt="Plot of measured force against displacement across the 50 mm stroke">
+            <figcaption>Figure 2. Measured force against displacement. Peak of 153 N near 26 mm,
+              125 N mean, integrating to 1,214 N&middot;s over the 10-second
+              separation.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+            <img src="../images/me104-capstan.jpg" alt="Close-up of the printed capstan, cord, and the added simple support beside the gearbox output">
+            <figcaption>Figure 3. Capstan detail. The simple support on the far side of the
+              shaft reacts cord tension on both sides rather than cantilevering the gearbox
+              output; residual deflection here is the leading explanation for the measured
+              shortfall.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+            <img src="../images/me104-cad.png" alt="CAD model of the final machine geometry">
+            <figcaption>Figure 4. Final CAD, including the lever cutout and the added capstan
+              support.</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/me104-fbd.png" alt="Hand-drawn free body diagrams of the frame, lever, and motor mount">
+            <figcaption>Figure 5. Free body diagrams used to solve member loads and to determine
+              how the gearbox had to be constrained.</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/me104-fea.png" alt="[Describe this image for screen readers]">
+            <figcaption>Figure 6. [Add the FEA result from the final geometry, or delete this
+              figure.]</figcaption>
           </figure>
         </div>
       </section>
@@ -185,11 +366,11 @@
         <caption>Project summary</caption>
         <tbody>
           <tr><th scope="row">Category</th><td>Mechanical Design, Electromechanical, Prototyping, Test Engineering</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Timeframe</th><td>Spring Quarter 2026</td></tr>
+          <tr><th scope="row">Context</th><td>ME 104, Mechanical Systems Design</td></tr>
+          <tr><th scope="row">Team</th><td>Team of 3</td></tr>
+          <tr><th scope="row">My focus</th><td>Structural analysis, CAD, fabrication, testing</td></tr>
+          <tr><th scope="row">Tools</th><td>Fusion 360, Python, waterjet, FDM printing, MTS load frame</td></tr>
         </tbody>
       </table>
     </aside>
