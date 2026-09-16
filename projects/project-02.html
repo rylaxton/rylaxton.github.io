@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SkyCool Systems PVC Jacketing Spring Clip &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <meta name="description" content="Redesign and validation of an extrudable plastic spring clip that retains jacketing on 2.5 in nominal PVC pipe, sized by hand calculation and a MATLAB design sweep.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -37,7 +37,9 @@
       <li class="tag">Test Engineering</li>
     </ul>
     <h1>SkyCool Systems PVC Jacketing Spring Clip</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <p class="lead">An extrudable plastic spring clip that retains jacketing on 2.5 in nominal
+      PVC pipe, sized from a closed-form bending model and a MATLAB design sweep, then
+      validated in FEA and across six printed prototypes.</p>
   </header>
 
   <div class="doc">
@@ -47,126 +49,276 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>Outdoor PVC piping at SkyCool Systems is wrapped in a protective jacketing that has
+          to be held against the pipe by a clip. The clip sits outside for years, so it has to
+          resist UV and corrosion, retain the jacketing without loosening, and be cheap enough
+          to produce in quantity. The part is a C-shaped spring clip that is spread by hand,
+          passed over the pipe outer diameter, and allowed to snap closed around it.</p>
+        <p>I designed the clip as a constant rectangular cross section so it could be produced
+          by extrusion, which keeps the per-part cost low and scales to volume. Plastic was
+          chosen over metal deliberately: the clip has to store a large installation deflection
+          without yielding, and a lower elastic modulus does exactly that at a given geometry,
+          while also removing any corrosion concern.</p>
+        <p>[If this replaced an earlier clip design, describe what it was and what was wrong
+          with it here &mdash; a before-and-after comparison is the most useful framing for a
+          reader.]</p>
       </section>
 
       <section>
         <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <p>The clip has to spread far enough to clear a 2.5 in outer diameter without yielding,
+          yet close with enough force to hold the jacketing in place. Those two goals pull
+          against each other: the clip behaves as a spring, so every additional inch of
+          installation deflection raises both the installation force and the peak bending
+          stress. The design problem was to find the geometry and material that satisfy both
+          ends of that trade with margin against yield.</p>
+        <p>Two levers were available. Widening the relaxed throat opening reduces the deflection
+          each arm has to travel to clear the pipe. Selecting a lower-modulus material reduces
+          the stress produced by whatever deflection remains.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li>Pass over a 2.5 in nominal PVC outer diameter with a factor of safety of at least
+            2.0 against yield in bending</li>
+          <li>Retain the jacketing against the pipe over a multi-year outdoor service life</li>
+          <li>Resist UV exposure and corrosion</li>
+          <li>Hold a constant cross section so the part can be extruded rather than molded</li>
+          <li>Install and remove by hand, without tools</li>
+          <li>Keep material and manufacturing cost low at production quantity</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>This was a solo project during my internship. I owned it end to end: defining the
+          requirements from the application constraints, developing the geometry, deriving the
+          bending and statics model by hand, writing the MATLAB script that sized the part,
+          building the CAD and running the FEA in Fusion 360, printing the prototypes, and
+          running the installation testing on the actual pipe and jacketing.</p>
       </section>
 
       <section>
         <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Requirements.</strong> Translated the application constraints &mdash; UV
+            and corrosion resistance, multi-year outdoor life, jacketing retention, low cost,
+            fast to manufacture &mdash; into a mechanical requirement: survive the installation
+            deflection over a 2.5 in outer diameter with a factor of safety of 2.0 against
+            yield.</li>
+          <li><strong>Concept development.</strong> Identified installation deflection as the
+            governing driver of both force and stress, and targeted it directly by widening the
+            relaxed throat opening and selecting a low-modulus material. Added rounded tips so
+            the clip can be pried off by hand when the jacketing needs to come away.</li>
+          <li><strong>Statics.</strong> Worked a force and moment balance on the clip. Symmetry
+            gives equal loads at the two tips and a crown reaction of twice the tip load, so the
+            problem reduces to a single arm carrying a spring force of the form F = k&delta;.</li>
+          <li><strong>Stress model.</strong> Treated each half of the clip as a cantilever beam
+            deflected far enough for the tip to clear the pipe diameter. Bending is the governing
+            failure mode, so the design constraint becomes <code>&sigma; = My/I</code> with
+            <code>I = lt&sup3;/12</code> and <code>y = t/2</code> for the rectangular section.</li>
+          <li><strong>Closed-form sizing.</strong> Combined the beam model with the clip geometry,
+            taking the effective arm length as the arc length from tip to crown rather than a
+            straight lever arm, which is the more conservative and more physically realistic
+            choice. That collapses to a single sizing relation,
+            <code>t = 2&middot;Sy&middot;L&sup2; / (3&middot;E&middot;&delta;&middot;FoS)</code>,
+            relating wall thickness directly to throat opening for a given material and factor
+            of safety.</li>
+          <li><strong>MATLAB design sweep.</strong> Swept 200 relaxed throat openings from 0.25
+            to 0.75 of the pipe diameter. For each, the script computes required deflection per
+            arm, stress-limited thickness, arm stiffness, installation force, installation
+            stress, and the resulting factor of safety, then flags the openings that stay under
+            the allowable stress.</li>
+          <li><strong>CAD.</strong> Modeled the selected geometry in Fusion 360 with a constant
+            rectangular cross section for extrusion, the widened throat opening from the sweep,
+            and rounded tips.</li>
+          <li><strong>FEA.</strong> Ran a Fusion 360 study using ASA material properties and a
+            prescribed displacement equal to the installation deflection, to check the hand
+            calculation and confirm where the part is actually loaded.</li>
+          <li><strong>Prototyping.</strong> Printed six prototypes. The first three were PLA,
+            chosen purely for filament availability. I then switched to ABS, which sits in the
+            same polymer family as ASA with comparable stiffness and strength, making it a
+            reasonable mechanical stand-in &mdash; ASA's advantage over ABS is UV stability
+            rather than mechanical performance.</li>
+          <li><strong>Testing.</strong> Installed and removed each prototype on the actual pipe
+            and jacketing through 10 cycles, checking after each that the clip had not taken a
+            permanent set severe enough to stop it clamping.</li>
+          <li><strong>Manufacturing and handoff.</strong> The constant cross section was chosen
+            specifically to enable extrusion, but sourcing low-volume ASA extrusion at an
+            acceptable price proved to be the real constraint on the project. My internship ended
+            before extruded parts were ordered, so the design was handed off at the validated
+            prototype stage.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>Design requirements and selected values</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>Design point from the MATLAB sweep, with the FEA check</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Pipe size</th><td>2.5 in nominal PVC</td></tr>
+            <tr><th scope="row">Clip width</th><td>0.50 in</td></tr>
+            <tr><th scope="row">Production material</th><td>ASA (extruded)</td></tr>
+            <tr><th scope="row">Elastic modulus</th><td>308,000 psi</td></tr>
+            <tr><th scope="row">Yield strength</th><td>8,500 psi</td></tr>
+            <tr><th scope="row">Required factor of safety</th><td>2.0</td></tr>
+            <tr><th scope="row">Allowable bending stress</th><td>4,250 psi</td></tr>
+            <tr><th scope="row">Selected wall thickness</th><td>0.19 in</td></tr>
+            <tr><th scope="row">Minimum viable throat opening</th><td>1.57 in</td></tr>
+            <tr><th scope="row">Install deflection per arm</th><td>0.47 in</td></tr>
+            <tr><th scope="row">Calculated install force</th><td>8.5 lbf total, 4.25 lbf per arm</td></tr>
+            <tr><th scope="row">Calculated install stress</th><td>4,240 psi (FoS 2.00)</td></tr>
+            <tr><th scope="row">FEA peak von Mises stress</th><td>4,254 psi (FoS 1.998)</td></tr>
+            <tr><th scope="row">Valid design window</th><td>50 of 200 openings, 1.57 to 1.88 in</td></tr>
+            <tr><th scope="row">Prototypes built</th><td>6 (first three PLA, remainder ABS)</td></tr>
+            <tr><th scope="row">Install and removal cycles</th><td>10 per prototype</td></tr>
           </tbody>
         </table>
 
         <h3>Analysis and calculations</h3>
         <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
+          <li>Force and moment balance establishing symmetric tip loads and a crown reaction of
+            twice the tip load, reducing the clip to a single spring arm</li>
+          <li>Cantilever bending model with the arm length taken as arc length,
+            <code>L = R&theta;</code>, rather than a straight lever arm</li>
+          <li>Sizing relation
+            <code>t = 2&middot;Sy&middot;L&sup2; / (3&middot;E&middot;&delta;&middot;FoS)</code>,
+            written in terms of pipe radius and relaxed throat position so thickness and opening
+            can be traded directly against one another</li>
+          <li>Arm stiffness <code>k = 3EI/L&sup3;</code> used to convert the required deflection
+            into an installation force, so the clip could be checked against what a hand can
+            comfortably apply as well as against yield</li>
+          <li>Factor of safety computed across the full sweep rather than at a single point,
+            producing a design window instead of one answer</li>
         </ul>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>Material selection</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
+          <li>Plastic over metal, on the basis that a lower elastic modulus stores the required
+            installation deflection at lower stress, with corrosion resistance as a second
+            benefit</li>
+          <li>ASA specified for production for its UV stability in long-term outdoor exposure</li>
+          <li>ABS used for later prototypes as a mechanical stand-in for ASA, since the two are
+            closely related and differ mainly in weathering performance</li>
+          <li>Material properties taken from published plastics property data rather than a
+            supplier datasheet for a specific grade, which is the weakest input in the
+            calculation chain and would be worth confirming before production</li>
         </ul>
 
-        <h3>Materials and manufacturing</h3>
+        <h3>Manufacturing</h3>
         <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>Constant rectangular cross section, selected so the part could be extruded and cut
+            to width rather than injection molded, avoiding tooling cost</li>
+          <li>Prototypes produced by FDM 3D printing</li>
+          <li>Sourcing low-volume ASA extrusion at an acceptable price was the limiting practical
+            constraint on the project</li>
         </ul>
 
         <h3>Software and tools</h3>
         <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
+          <li>Fusion 360 for CAD and finite element analysis</li>
+          <li>MATLAB for the parametric design sweep and plots</li>
+          <li>FDM 3D printing for prototypes</li>
         </ul>
 
         <h3>Test procedure</h3>
         <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
+          <li>Print the prototype and confirm the as-built geometry against the CAD model</li>
+          <li>Spread the clip by hand and pass it over the 2.5 in nominal PVC pipe with the
+            jacketing in place</li>
+          <li>Confirm the clip snaps closed and holds the jacketing against the pipe</li>
+          <li>Remove the clip by hand using the rounded tips</li>
+          <li>Repeat for 10 install and removal cycles</li>
+          <li>Inspect between cycles for cracking or permanent set; the pass criterion is that
+            the clip still clamps the jacketing after the tenth cycle</li>
         </ol>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>The sweep produced a defined design window rather than a single answer: at a 0.19
+            in wall thickness, 50 of the 200 throat openings evaluated (1.57 to 1.88 in) hold a
+            factor of safety of at least 2.0 against yield during installation</li>
+          <li>At the selected design point, each arm deflects 0.47 in to clear the pipe, at a
+            calculated installation force of 8.5 lbf total &mdash; low enough to install by
+            hand, which was a requirement the stress calculation alone would not have caught</li>
+          <li>FEA returned a peak von Mises stress of 4,254 psi against a hand-calculated
+            allowable of 4,250 psi, agreement within 0.09% and an implied factor of safety of
+            1.998 against the required 2.0. Two independent methods converging that closely
+            gave real confidence in the sizing relation</li>
+          <li>FEA also confirmed bending as the governing failure mode and located the peak
+            stress where the hand model predicted it</li>
+          <li>All six prototypes survived 10 install and removal cycles on the actual pipe and
+            jacketing without taking a permanent set that compromised clamping
+            [confirm whether the 10-cycle test was run on the PLA prototypes, the ABS
+            prototypes, or both]</li>
+          <li>As-built prototype geometry was confirmed against the CAD model</li>
+          <li>Because the sizing script takes pipe diameter as an input, the same method
+            regenerates geometry for larger pipe sizes; the built design targeted 2.5 in
+            nominal, with larger diameters as the intended extension</li>
         </ul>
+
+        <h3>Limitations</h3>
+        <ul>
+          <li>The first three prototypes were PLA, which at a prescribed deflection sees
+            meaningfully higher stress than ASA would at the same geometry. Surviving in PLA is
+            a conservative result, but it is not direct evidence about ASA</li>
+          <li>Printed parts are anisotropic and layer adhesion is orientation dependent, so the
+            prototypes validate geometry, fit, and function rather than the mechanical
+            performance of a finished extruded part</li>
+          <li>Testing covered 10 install cycles, not long-term outdoor exposure, UV degradation,
+            or creep under sustained clamping load</li>
+          <li>Extruded ASA parts were never produced, so the production design is analytically
+            and functionally validated but not manufacturing validated</li>
+        </ul>
+
         <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+        <p>The engineering that decided this project was not the stress analysis. Designing a
+          geometry that was cheap to make in principle was straightforward; actually sourcing
+          low-volume extrusion of the right material at an acceptable price was the part that
+          stalled, and I would go looking for that constraint much earlier next time. The other
+          thing I would keep is the sweep: solving for a window of valid geometry instead of one
+          point meant I could move the throat opening later without redoing the analysis.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Export these from the deck and name the files to match, or change the
+             src attributes to whatever you name them. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+            <img src="../images/spring-clip-cad-iso.png" alt="Isometric CAD view of the C-shaped spring clip">
+            <figcaption>Figure 1. Fusion 360 model of the clip. Constant rectangular cross
+              section for extrusion, widened throat opening to cut installation deflection, and
+              rounded tips for hand removal.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+            <img src="../images/spring-clip-force-balance.png" alt="Free body diagram showing tip loads and crown reaction on the clip">
+            <figcaption>Figure 2. Force and moment balance. Symmetry gives equal tip loads and a
+              crown reaction of twice the tip load, reducing the clip to a single spring
+              arm.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+            <img src="../images/spring-clip-stress-sweep.png" alt="Plot of installation stress against throat opening with the allowable stress line">
+            <figcaption>Figure 3. Installation stress against relaxed throat opening, with the
+              4,250 psi allowable marked. The crossing point sets the minimum viable opening of
+              1.57 in.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+            <img src="../images/spring-clip-fea.png" alt="Fusion 360 finite element result showing von Mises stress on the deflected clip">
+            <figcaption>Figure 4. FEA under prescribed installation displacement. Peak von Mises
+              stress of 4,254 psi, within 0.09% of the hand-calculated allowable, confirming
+              bending as the governing mode.</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/spring-clip-prototypes.jpg" alt="[Describe this image for screen readers]">
+            <figcaption>Figure 5. [Add photo of the printed prototypes, or delete this
+              figure.]</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/spring-clip-installed.jpg" alt="[Describe this image for screen readers]">
+            <figcaption>Figure 6. [Add photo of a clip installed on the pipe with jacketing, or
+              delete this figure.]</figcaption>
           </figure>
         </div>
       </section>
@@ -184,11 +336,11 @@
         <caption>Project summary</caption>
         <tbody>
           <tr><th scope="row">Category</th><td>Mechanical Design, Prototyping, Test Engineering</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Timeframe</th><td>July to August 2026</td></tr>
+          <tr><th scope="row">Context</th><td>Internship, SkyCool Systems</td></tr>
+          <tr><th scope="row">Team</th><td>Solo</td></tr>
+          <tr><th scope="row">My focus</th><td>Full scope: requirements through prototype testing</td></tr>
+          <tr><th scope="row">Tools</th><td>Fusion 360, MATLAB, FDM printing</td></tr>
         </tbody>
       </table>
     </aside>
