@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ryan Laxton — Engineering Portfolio</title>
-  <meta name="description" content="Engineering portfolio of [Your Name]: mechanical systems design, electromechanical systems, testing, prototyping, and engineering problem solving.">
+  <meta name="description" content="Engineering portfolio of Ryan Laxton: mechanical systems design, electromechanical systems, testing, prototyping, and engineering problem solving.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -67,22 +67,25 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Engineering projects</h2>
-        <p>Ten projects across mechanical design, electrical and test engineering, and
-          systems work. Each page covers the problem, my role, the engineering process,
+        <p>Ten projects across mechanical design, electrical systems, test engineering, and
+          propulsion. Each page covers the problem, my role, the engineering process,
           technical details, and results.</p>
       </div>
 
-      <!-- Filter buttons. The value must match a word in a card's data-groups. -->
+      <!-- Filter buttons. Each data-filter value must match a key in the GROUPS
+           table at the top of script.js. Which projects appear under a button is
+           decided by the visible tag text on each card below. -->
       <div class="filters" role="group" aria-label="Filter projects by discipline">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="filter" type="button" data-filter="mechanical" aria-pressed="false">Mechanical</button>
-        <button class="filter" type="button" data-filter="electrical" aria-pressed="false">Electrical / Test</button>
-        <button class="filter" type="button" data-filter="other" aria-pressed="false">Other engineering</button>
+        <button class="filter" type="button" data-filter="electrical" aria-pressed="false">Electrical</button>
+        <button class="filter" type="button" data-filter="test" aria-pressed="false">Test</button>
+        <button class="filter" type="button" data-filter="propulsion" aria-pressed="false">Propulsion</button>
       </div>
       <p class="filter-count" id="filter-count" aria-live="polite">Showing all 10 projects</p>
 
       <ul class="project-grid" id="project-grid">
-      <li class="card" data-groups="mechanical other">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -91,6 +94,7 @@
             <li class="tag">Electrical System Design</li>
             <li class="tag">Electromechanical</li>
             <li class="tag">Test Engineering</li>
+            <li class="tag">Propulsion Systems</li>
           </ul>
           <h3>Cardinal Propulsion Lab Electrical Ground System</h3>
           <p>[One-sentence summary of the project: what it is and what you did.]</p>
@@ -98,7 +102,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="mechanical">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -114,7 +118,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="mechanical electrical other">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -131,7 +135,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="electrical">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -145,7 +149,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="electrical">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -159,7 +163,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="mechanical electrical">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -174,7 +178,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="electrical other">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -189,7 +193,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="mechanical other">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -204,7 +208,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="electrical">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -219,7 +223,7 @@
         </div>
       </li>
 
-      <li class="card" data-groups="mechanical other">
+      <li class="card">
         <figure class="card-figure">
           <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
         </figure>
@@ -241,7 +245,6 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Skills and tools</h2>
-        <p>Replace anything below that does not apply to you, and delete the rest.</p>
       </div>
       <div class="skill-grid">
         <div class="skill-card">
