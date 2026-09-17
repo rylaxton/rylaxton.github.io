@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thrust Stand &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <title>GROOVA: Hand-Cranked Turntable Mechanism (ME 102) &mdash; Ryan Laxton</title>
+  <meta name="description" content="A hand-cranked turntable built around mechanism 99 from 507 Mechanical Movements, developed through three prototypes with explicit driver questions and success metrics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -32,11 +32,19 @@
   <header class="project-head">
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
     <ul class="tags">
+      <li class="tag">Prototyping</li>
       <li class="tag">Mechanical Design</li>
-      <li class="tag">Test Engineering</li>
     </ul>
-    <h1>Thrust Stand</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <h1>GROOVA: Hand-Cranked Turntable Mechanism (ME 102)</h1>
+    <p class="lead">A hand-cranked turntable built around an 1868 mechanism for drill feed motion,
+      developed through three prototypes each with a written driver question and success metrics
+      before it was built.</p>
+    <figure class="project-hero">
+      <img src="../images/groova-final.jpg" alt="The finished hand-cranked turntable: acrylic enclosure with a black platter, horn arm, and side crank">
+      <figcaption>Figure 1. The final mechanism. Side crank into a bevel gear pair, grooved
+      platter on the vertical spindle, and the horn-and-needle arm that follows the
+      groove.</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -46,133 +54,230 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>The assignment was to take an assigned mechanism from Henry T. Brown's
+          <em>507 Mechanical Movements</em>, invent a use case for it, and then argue that the
+          mechanism was the right choice for that use. We drew
+          <a href="https://507movements.com/mm_099.html">movement 99</a>: a spiral guide on the
+          face of a disk, catalogued in 1868 as a way to generate the feed motion of a drilling
+          machine. Rotate the disk and a follower riding the spiral is carried steadily inward or
+          outward, turning one rotation into a controlled radial translation.</p>
+        <p>Researching it, we noticed the same kinematics in something far more familiar than a
+          drill press: a record player. A stylus tracking a spiral groove is exactly this
+          mechanism, with the groove doing the guiding and the tonearm doing the translating. So
+          we built a hand-cranked turntable &mdash; a crank drives a bevel gear pair into a
+          vertical spindle, the spindle turns a grooved platter, and a horn-and-needle arm follows
+          the groove inward as it rotates. We called it GROOVA, for Guided Rotational Oscillation
+          of Vinyl Assembly.</p>
       </section>
 
       <section>
-        <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <h2>Objective and constraints</h2>
+        <p>The engineering content of this project sat in the prototyping method rather than in
+          analysis. We had three required prototypes, a tight budget, a fixed envelope, and a
+          final assessment on function rather than appearance, which meant the useful discipline
+          was deciding in advance what each prototype was supposed to answer.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li>Demonstrate a working use case for the assigned mechanism and justify why it suits
+            that use better than the alternatives</li>
+          <li>Build at least three prototypes, escalating from rough to fully functional</li>
+          <li>Fit the finished mechanism inside an 8 &times; 8 &times; 8 in volume</li>
+          <li>Work within $20 per student</li>
+          <li>Be graded on functionality, reliability, robustness, and finishing &mdash; so the
+            needle has to stay in the groove repeatedly, not once</li>
+          <li>Produce a full engineering drawing package, including a dimensioned critical part
+            with tolerances, from a properly assembled CAD model</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>A two-person project. We both worked across the whole thing rather than splitting it by
+          discipline &mdash; research, CAD, printing, laser cutting, tolerance testing, assembly,
+          and the presentation were all shared. My partner led the engineering drawing package,
+          including the exploded view. The critical part we selected for the dimensioned drawing
+          was the track and needle, since that interface is what the entire mechanism depends
+          on.</p>
       </section>
 
       <section>
-        <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
+        <h2>Prototyping method</h2>
+        <p>Each prototype was given a driver question and a set of pass criteria in writing before
+          it was built. That is the part of this project I would carry into professional work: it
+          forces you to decide what you are actually trying to learn, and it stops a prototype from
+          becoming a smaller version of the final thing built for no particular reason.</p>
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Prototype 1 &mdash; is the motion method feasible?</strong> The driver
+            questions were how rotational motion could translate a device linearly, and how to fix
+            an object in a track while still letting it move freely along it. Pass criteria: all
+            parts print successfully, the motion method demonstrates promise, and all the key
+            geometries and relationships are visible. Built as a printed enclosure with a spiral
+            grooved platter.</li>
+          <li><strong>Prototype 2 &mdash; can we make it faster without losing fit?</strong> Two
+            driver questions: whether laser cutting would cut fabrication time while still giving
+            acceptable fit, and whether a needle on the tonearm could follow the groove reliably.
+            Pass criteria: the structure holds alignment after adhesive, and the needle stays in
+            the groove through a full rotation. Built from laser-cut flat stock with a spiral
+            disc.</li>
+          <li><strong>Tolerance characterization.</strong> Between prototypes we printed
+            deliberate test coupons rather than guessing at fits: a set of threaded samples to
+            find what thread geometry actually works in PLA, and a set of shaft samples to match
+            shaft diameters to hole diameters. Printed threads and printed press fits both
+            depend on process behaviour that no CAD dimension tells you, so the only way to get
+            it right is to print a sweep and measure what fits.</li>
+          <li><strong>Prototype 3 &mdash; is it reliable and serviceable?</strong> Driver
+            questions moved from "does it work" to "does it keep working": whether fasteners would
+            improve reassembly, whether the funnel and needle structure would reliably stay in the
+            track, and whether user input stayed uninterrupted. Pass criteria: assembly and
+            disassembly possible without deforming parts, the needle stays in the groove through a
+            full rotation, and the needle completes a full rotation without sticking or falling
+            out.</li>
+          <li><strong>Final build.</strong> Rebuilt with fasteners replacing adhesive, gears
+            positively located rather than floating, and the track cleared of the blockages that
+            had been stalling the needle. Eight printed parts and eight laser-cut parts in PLA
+            and acrylic.</li>
+          <li><strong>Drawing package and presentation.</strong> Assembled and joined the full
+            CAD model, then produced the drawing package from it, and presented the mechanism with
+            a photo essay and a live demonstration.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>As built</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>Final mechanism</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Source mechanism</th><td>Movement 99, spiral guide on a disk face</td></tr>
+            <tr><th scope="row">Use case</th><td>4 in hand-cranked turntable</td></tr>
+            <tr><th scope="row">User input</th><td>Rotating hand crank</td></tr>
+            <tr><th scope="row">Transmission</th><td>Bevel gear pair, horizontal crank to vertical spindle</td></tr>
+            <tr><th scope="row">Follower</th><td>Horn and needle arm riding the spiral groove</td></tr>
+            <tr><th scope="row">Printed parts</th><td>8, PLA</td></tr>
+            <tr><th scope="row">Laser-cut parts</th><td>8, acrylic</td></tr>
+            <tr><th scope="row">Joining</th><td>Threaded fasteners and printed threads, replacing adhesive</td></tr>
+            <tr><th scope="row">Envelope</th><td>Within the 8 &times; 8 &times; 8 in limit</td></tr>
+            <tr><th scope="row">Prototypes</th><td>3, plus printed tolerance test coupons</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
+        <h3>Design decisions and why</h3>
         <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
+          <li>Bevel gears to take the crank axis through ninety degrees into the spindle, so the
+            user cranks from the side of a box rather than reaching over the platter</li>
+          <li>A funnel-and-needle follower rather than a plain pin, giving the needle a stable
+            seat in the groove and the object a recognizable gramophone form</li>
+          <li>Fasteners over adhesive in the final build, because the earlier bonded assemblies
+            could not be taken apart for adjustment without damage &mdash; serviceability was a
+            stated pass criterion, not an afterthought</li>
+          <li>Printed threads instead of captive nuts where space was tight, which is what drove
+            the thread tolerance testing</li>
+          <li>Acrylic for flat structure and PLA for anything with three-dimensional form,
+            splitting the work between laser cutting for speed and printing for geometry</li>
         </ul>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>Failure modes found and fixed</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
+          <li>Needle stalling on blockages in the groove track, fixed by cleaning up the track
+            geometry</li>
+          <li>Parts not fitting or requiring adhesive to hold position, fixed by characterizing
+            printed fits and moving to fasteners</li>
+          <li>Gears not fully constrained in position, fixed by positively locating them in the
+            final build</li>
         </ul>
 
-        <h3>Materials and manufacturing</h3>
+        <h3>Tools</h3>
         <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>CAD for the assembly and the drawing package</li>
+          <li>FDM 3D printing and laser cutting</li>
+          <li>Hand assembly and fastening</li>
         </ul>
-
-        <h3>Software and tools</h3>
-        <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
-        </ul>
-
-        <h3>Test procedure</h3>
-        <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
-        </ol>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>The mechanism works and meets every pass criterion we wrote for it. The needle
+            tracks the groove through a full rotation without sticking or falling out, user input
+            is uninterrupted through the crank, and the assembly can be taken apart and put back
+            together without deforming parts</li>
+          <li>Three prototypes plus tolerance coupons, each with its question answered before the
+            next one started</li>
+          <li>Printed thread and shaft-to-hole fits were established empirically rather than
+            assumed, which is what allowed the final build to drop adhesive entirely</li>
+          <li>A complete engineering drawing package produced from a fully assembled CAD model,
+            with the track-and-needle interface as the dimensioned critical part</li>
         </ul>
-        <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+
+        <h3>What we took from it</h3>
+        <ul>
+          <li><strong>Don't chase a boondoggle.</strong> We repeatedly sank time into minor
+            components that later got removed. The fix for the next project was to assess whether
+            a part is necessary before detailing it, and to lay out a critical path to a result
+            rather than working on whatever was in front of us</li>
+          <li><strong>Manufacturing time is a design input.</strong> Long print and cut queues set
+            the pace of the whole project, so designing for fast processes is not an optimization
+            &mdash; it is what determines how many iterations you get</li>
+          <li><strong>Design for assembly from the start.</strong> Joint connections, thread
+            sizes, and the order of operations all have to be decided as part of the design, not
+            discovered at assembly. A mechanism that cannot be reassembled cannot be
+            maintained</li>
+        </ul>
+
+        <h3>Limitations</h3>
+        <ul>
+          <li>We never recorded the quantitative results of the tolerance testing. The method was
+            right and the fits worked, but the clearances that came out of it are lost, which
+            means the useful part of that work cannot be reused &mdash; a documentation failure,
+            not a technical one</li>
+          <li>The gear ratio, groove pitch, and needle travel distance were never calculated or
+            recorded, so the mechanism's motion cannot be predicted from this write-up</li>
+          <li>The required force analysis was done late in the project and I would not stand
+            behind the numbers in it. It satisfied the deliverable without informing the
+            design</li>
+          <li>Reliability was demonstrated over a handful of rotations by hand, not over any
+            meaningful cycle count</li>
+        </ul>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Replace with your own exports, keeping these filenames or editing the src. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+          <img src="../images/groova-cad.png" alt="CAD isometric of the turntable assembly">
+          <figcaption>Figure 2. The assembled CAD model, from which the drawing package was
+          produced.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+          <img src="../images/groova-prototype-1.jpg" alt="First prototype: printed enclosure with a white spiral grooved platter">
+          <figcaption>Figure 3. Prototype 1, answering whether the motion method was feasible
+          at all and whether a follower could be held in a track while still moving freely
+          along it.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+          <img src="../images/groova-prototype-2.jpg" alt="Second prototype: laser-cut flat panels with a spiral disc and tonearm piece">
+          <figcaption>Figure 4. Prototype 2, testing whether laser cutting could cut fabrication
+          time without losing fit, and whether a needle could track the groove
+          reliably.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+          <img src="../images/groova-thread-tests.jpg" alt="Row of printed threaded test coupons">
+          <figcaption>Figure 5. Printed thread test coupons. Thread geometry that works in PLA
+          is a process question, not a CAD question, so it was determined by printing a
+          sweep.</figcaption>
+          </figure>
+          <figure>
+          <img src="../images/groova-shaft-tests.jpg" alt="Row of printed shaft and hole fit test coupons">
+          <figcaption>Figure 6. Shaft test coupons, used to match printed shaft diameters to
+          hole diameters for a fit that holds without adhesive.</figcaption>
           </figure>
         </div>
       </section>
 
       <nav class="pager" aria-label="Project navigation">
-        <a href="project-05.html">Previous: ME 103 Hammer and Toolbox Manufacturing</a>
-        <a href="project-07.html">Next: Tesla Coil</a>
+        <a href="project-05.html">Previous: 53 g Spring-Lever Mechanism (ME 104)</a>
+        <a href="project-07.html">Next: Miniature Tesla Coil from Salvaged Electronics</a>
       </nav>
 
     </div>
@@ -182,12 +287,12 @@
       <table class="spec-table">
         <caption>Project summary</caption>
         <tbody>
-          <tr><th scope="row">Category</th><td>Mechanical Design, Test Engineering</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Category</th><td>Prototyping, Mechanical Design</td></tr>
+          <tr><th scope="row">Timeframe</th><td>October to November 2025</td></tr>
+          <tr><th scope="row">Context</th><td>ME 102, Foundations of Product Realization</td></tr>
+          <tr><th scope="row">Team</th><td>Two people</td></tr>
+          <tr><th scope="row">My focus</th><td>Shared across research, CAD, fabrication, and assembly</td></tr>
+          <tr><th scope="row">Processes</th><td>FDM printing, laser cutting, tolerance testing, CAD drawings</td></tr>
         </tbody>
       </table>
     </aside>

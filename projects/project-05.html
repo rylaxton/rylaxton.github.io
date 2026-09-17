@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ME 103 Hammer and Toolbox Manufacturing &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <title>53 g Spring-Lever Mechanism (ME 104) &mdash; Ryan Laxton</title>
+  <meta name="description" content="A 53 g lever-and-spring mechanism built to produce a 4,000 N/m linear force response over a 50 mm stroke, reaching 186 N of a required 200 N with 33 N RMS force error, three quarters of which traced to spring slack at the start of the stroke.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -32,10 +32,20 @@
   <header class="project-head">
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
     <ul class="tags">
-      <li class="tag">Manufacturing</li>
+      <li class="tag">Mechanical Design</li>
+      <li class="tag">Prototyping</li>
+      <li class="tag">Test Engineering</li>
     </ul>
-    <h1>ME 103 Hammer and Toolbox Manufacturing</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <h1>53 g Spring-Lever Mechanism (ME 104)</h1>
+    <p class="lead">A 53 g lever-and-spring mechanism built to resist a closing hatch with a
+      4,000 N/m linear force response over a 50 mm stroke. It reached 186 N of a required 200 N
+      and returned 33 N RMS force error, about three quarters of which traces to 13 mm of slack
+      at the start of the stroke rather than to any shortfall in force.</p>
+    <figure class="project-hero">
+      <img src="../images/spring-lever-cad.png" alt="CAD render of the final assembly: two tubular legs, a lever arm at the top, and an extension spring on the diagonal">
+      <figcaption>Figure 1. The final assembly. The extension spring runs on the diagonal and
+      loads the lever, which reacts against the pin coupling above.</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -45,133 +55,296 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>The second ME 104 design project asks for a spring-like widget that resists a hatch as it
+          closes, producing a specified force-displacement relationship at the lowest possible
+          mass. The scenario is a hatch on a Mars habitat, so mass is expensive and the widget sees
+          only a few load cycles, which makes fatigue explicitly not a design driver. Each team is
+          issued one catalog spring of its choosing and builds everything else.</p>
+        <p>The device has to fit between two fixed interfaces and touch them only where permitted:
+          a pin coupling above, and a platen below where contact is allowed on an outer annulus and
+          nowhere else, including under deflection at full load. Testing is on an MTS load frame,
+          which weighs the device, checks geometric compliance, then drives the upper interface
+          down through the stroke and back while recording reaction force. Both directions count
+          toward the error figure.</p>
+        <p>The other ME 104 project on this site, the
+          <a href="project-04.html">motor-driven impulse machine</a>, used the same load frame and
+          the same 50 mm stroke to a different end: maximizing delivered impulse rather than
+          tracking a prescribed force curve at minimum mass.</p>
       </section>
 
       <section>
-        <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <h2>Objective and requirements</h2>
+        <p>Produce a vertical reaction force rising linearly from 0 N at first contact to 200 N at full
+          displacement, hold it on both halves of the stroke, and do it at minimum mass.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li><strong>Force:</strong> 4,000 N/m, or 0 to 200 N across the stroke, matched going
+            down and coming back up</li>
+          <li><strong>Stroke:</strong> upper interface travels from 0.20 m to 0.15 m separation and
+            back, a 50 mm displacement</li>
+          <li><strong>Failure:</strong> a peak force below 100 N at maximum displacement, or 50%
+            force error, for any reason</li>
+          <li><strong>Envelope and contact:</strong> the part may touch any part of the pin coupling
+            cylinder but must not extend above it, and may touch the platen only on the outer
+            annulus of its top face, including under deflection at full load</li>
+          <li><strong>Mass:</strong> minimized, with the provided spring excluded from the scored
+            figure</li>
+          <li><strong>Springs:</strong> one spring from three catalog options, and no other catalog
+            component may provide substantial compliance or energy storage</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>Two-person team, with testing shared. I owned everything downstream of the device's
+          geometry: resolving the reactions and member loads, inverse sizing each member against
+          its governing failure mode, the CAD assembly, the FEA and buckling studies, and
+          fabrication and assembly.</p>
+        <p>The 2D analysis and the geometry optimization that set the device's proportions were my
+          partner's work rather than mine, and the 53 g mass and 186 N peak are a team result.</p>
       </section>
 
       <section>
         <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Requirements.</strong> Taken from the assignment. No target mass or target
+            error was published in advance, so we set our own working targets from what the
+            analysis suggested was reachable.</li>
+          <li><strong>Spring selection.</strong> We chose the extension spring, McMaster-Carr
+            5667N356, from the three offered. [Add why extension rather than the compression or die
+            spring, and what the back-of-the-envelope comparison showed about each.]</li>
+          <li><strong>Geometry optimization.</strong> My partner ran a parametric sweep over the
+            geometry variables, scoring each candidate by squared deviation from the 4,000 N/m
+            target line. The leading candidates predicted a match on the order of 1 N RMS, with
+            199.3 N of reaction at full stroke and 260.3 N in the spring.</li>
+          <li><strong>Load resolution.</strong> From the selected geometry I resolved the support
+            reactions and then the member loads, taking the reaction split from the overall free
+            body diagram and the axial and bending loads from member-level diagrams.</li>
+          <li><strong>Inverse sizing.</strong> Rather than picking sections and checking them, I
+            solved each failure criterion for the section it required: axial, bending, the two
+            combined, and Euler buckling. Combined loading governed, at roughly 35 MPa against a
+            40 MPa allowable.</li>
+          <li><strong>CAD and FEA.</strong> I modelled the assembly and ran static stress and
+            linear buckling studies, checking the FEA stress distribution against the members the
+            inverse analysis had flagged as critical.</li>
+          <li><strong>Fabrication and assembly.</strong> [Describe how each custom part was made
+            and in which shop, and which components were catalog purchases.]</li>
+          <li><strong>Presentation and feedback.</strong> A recorded five-minute design summary was
+            submitted two days before testing, with feedback returned in time for final
+            adjustments. [Note any change made after that feedback, or state that none was
+            made.]</li>
+          <li><strong>Test.</strong> Weighed, checked against the geometric constraints, installed
+            between the two interfaces, and driven through the full stroke in both
+            directions.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>Requirements and measured values</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>Required, predicted, and measured</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Required stiffness</th><td>4,000 N/m (0 to 200 N over 50 mm)</td></tr>
+            <tr><th scope="row">Stroke</th><td>50 mm (0.20 m to 0.15 m separation)</td></tr>
+            <tr><th scope="row">Peak force required</th><td>200 N</td></tr>
+            <tr><th scope="row">Peak force predicted</th><td>199.3 N</td></tr>
+            <tr><th scope="row">Peak force measured</th><td>186 N</td></tr>
+            <tr><th scope="row">Failure threshold</th><td>below 100 N peak, or 50% force error</td></tr>
+            <tr><th scope="row">Geometric compliance</th><td>Passed</td></tr>
+            <tr><th scope="row">Mass, spring excluded</th><td>53 g</td></tr>
+            <tr><th scope="row">RMS force error, both strokes</th><td>33 N</td></tr>
+            <tr><th scope="row">Spring force predicted at full stroke</th><td>260.3 N</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
+        <h3>Spring and load path</h3>
+        <table class="spec-table">
+          <caption>Spring and structural members</caption>
+          <tbody>
+            <tr><th scope="row">Spring</th><td>Extension spring, McMaster-Carr 5667N356</td></tr>
+            <tr><th scope="row">Spring rate</th><td>[Add rate]</td></tr>
+            <tr><th scope="row">Free length</th><td>[Add free length]</td></tr>
+            <tr><th scope="row">Frame members</th><td>[Add as-built material and section for BD, BG, and DG]</td></tr>
+            <tr><th scope="row">Lever</th><td>[Add as-built material and how it was made]</td></tr>
+            <tr><th scope="row">Catalog components</th><td>[List catalog parts used besides the spring]</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Inverse sizing</h3>
+        <p>The approach was to invert each criterion: set stress equal to yield over a factor of
+          safety and solve for the section it demands, which for a tube of known outer radius gives
+          a maximum permissible inner radius directly. Adding bending raises the required section
+          substantially, and the combined case governed.</p>
+        <table class="spec-table">
+          <caption>Calculated minimum sections, with as-built values still to be confirmed</caption>
+          <tbody>
+            <tr><th scope="row">BD, governing criterion</th><td>Axial stress</td></tr>
+            <tr><th scope="row">BD, calculated minimum</th><td>7.5 mm outer radius with inner radius no greater than 7.387 mm, a 0.11 mm minimum wall</td></tr>
+            <tr><th scope="row">BD, as built</th><td>[Add as-built section]</td></tr>
+            <tr><th scope="row">BG, governing criterion</th><td>Combined axial and bending</td></tr>
+            <tr><th scope="row">BG, calculated minimum</th><td>7.5 mm outer radius with 7.0 mm inner radius, a 0.5 mm wall</td></tr>
+            <tr><th scope="row">BG, as built</th><td>[Add as-built section]</td></tr>
+            <tr><th scope="row">DG, governing criterion</th><td>Axial tension</td></tr>
+            <tr><th scope="row">DG, calculated minimum</th><td>0.363 mm radius</td></tr>
+            <tr><th scope="row">DG, as built</th><td>[Add as-built section]</td></tr>
+            <tr><th scope="row">Combined stress at design load</th><td>approximately 35 MPa</td></tr>
+            <tr><th scope="row">Allowable stress used</th><td>40 MPa [add the material, and whether a factor of safety is already inside this number]</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Every figure in the middle column above is a calculated minimum from the
+          inverse analysis, not a measured dimension of the finished part. Until the as-built rows
+          are filled in, this analysis shows what the design needed, not what it had.</p>
+
+        <h3>Analysis methods and assumptions</h3>
         <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
+          <li>Member free body diagrams were resolved under a small-angle assumption, reasonable at
+            the working geometry but degrading as the lever rotates through the stroke</li>
+          <li>Failure modes considered: axial yield, bending yield, the two combined, and Euler
+            buckling of the compression members</li>
+          <li>Fatigue was not analyzed. The assignment states the widget sees only a few load
+            cycles, so this is a permitted simplification, but nothing here speaks to repeated
+            use</li>
         </ul>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>FEA and buckling</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
-        </ul>
-
-        <h3>Materials and manufacturing</h3>
-        <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>Static von Mises stress on the frame and the lever, loaded and constrained from the
+            resolved member loads</li>
+          <li>Linear buckling, first mode load factor 5.919 [add the applied load this was computed
+            against, and which member buckles in that mode, so it reads as a margin]</li>
+          <li>A 129.7 MPa peak in the lever study sits at a small hardened steel rod. It is a
+            meshing artifact, no design decision was made on it, and it is excluded here</li>
+          <li>[Add the peak stress you stand behind on the frame, and on the lever with the rod
+            artifact excluded]</li>
         </ul>
 
         <h3>Software and tools</h3>
         <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
+          <li>Fusion 360 for CAD, static stress FEA, and the linear buckling study</li>
+          <li>MTS load frame for force and displacement measurement during the test</li>
+          <li>[Add fabrication equipment and the shop each part was made in]</li>
         </ul>
 
         <h3>Test procedure</h3>
         <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
+          <li>Device weighed, with the provided spring excluded from the recorded mass</li>
+          <li>Geometric compliance checked against the pin coupling envelope and the permitted
+            platen contact annulus</li>
+          <li>Device installed between the pin coupling and the platen</li>
+          <li>Upper interface driven slowly from 0.20 m to 0.15 m separation and back, with
+            reaction force recorded continuously against displacement</li>
+          <li>Pass criteria: peak force at or above 100 N, and force error within 50%, counting both
+            halves of the stroke</li>
         </ol>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>Passed the geometric compliance check, so it was scored on performance rather than
+            disqualified on contact or envelope</li>
+          <li>53 g excluding the provided spring</li>
+          <li>186 N peak reaction at full displacement against a 200 N requirement and a 100 N
+            failure threshold: 93% of target, 86% above the floor</li>
+          <li>33 N RMS force error across both halves of the stroke</li>
+          <li>Peak force landed 6.6% below the 199.3 N predicted, good agreement for a hand-built
+            mechanism, but the force error came in roughly thirty times the model's prediction</li>
         </ul>
+
+        <h3>Where the force error came from</h3>
+        <p>The device produced almost no reaction force over the first part of the stroke. Reading
+          the recorded curve, force stays below 5 N for the first 12.9 mm going down and the first
+          14.2 mm coming back up, so roughly a quarter of the 50 mm stroke did no work. Because
+          error is scored against a line through the origin, that is expensive: the target curve
+          already calls for about 52 N at 13 mm of displacement, and the deficit accumulated there
+          propagates through the rest of the stroke.</p>
+        <p>The size of that effect is worth being precise about. Holding the measured 186 N peak
+          fixed and asking what the error would have been had the device engaged at zero
+          displacement and risen linearly to that same peak gives roughly 8 N RMS instead of 33 N.
+          So the 14 N shortfall in peak force accounts for only a small part of the error. Most of
+          it is the delayed engagement.</p>
+        <p>The most likely cause is slack in the extension spring, which has to be taken up before
+          the lever begins to load the frame at all. Nothing in the geometry model accounted for
+          it, because the model began at first contact by construction.</p>
+        <p>The curve also encloses a hysteresis loop of about 0.84 J against roughly 3.97 J of loading
+          work, near 21% lost per cycle, consistent with friction at the pivots and hysteresis in
+          the spring, though we did not separate the two. Since both halves of the stroke counted
+          toward force error, that loss fed straight into the measured result.</p>
+        <p class="note">The onset displacements, the counterfactual error, and the loop area above
+          were recovered by tracing the recorded force-displacement plot rather than from the raw
+          data file. The trace reproduces the reported 186 N peak and 33 N RMS error to within
+          about one percent, so these derived figures are reliable to roughly that. [Recompute them
+          from the raw MTS data if it can be recovered.]</p>
+
+        <h3>Limitations</h3>
+        <ul>
+          <li>The geometry behind the near-linear response was my partner's analysis, not mine, so my
+            sizing, FEA, and fabrication are all conditioned on a configuration I did not
+            derive</li>
+          <li>The sizing figures here are calculated minimums, not as-built dimensions. Until the
+            as-built sections sit beside them, the analysis shows what the design needed rather
+            than what it had</li>
+          <li>The 40 MPa allowable is quoted without the material behind it, and without stating
+            whether a factor of safety is already inside that number</li>
+          <li>The 129.7 MPa FEA peak is a mesh artifact. It is named here so that anyone reading the
+            original screenshots knows it was identified and discarded, not quietly relied on</li>
+          <li>The 5.919 buckling factor has no recorded applied load next to it, so it cannot yet be
+            read as a margin against anything</li>
+          <li>No fatigue analysis, which limits what the result says about a device meant to
+            cycle</li>
+          <li>The spring-slack explanation is a diagnosis made after the fact. We did not instrument
+            the spring separately or re-run with the slack removed, so the 13 mm is attributed
+            rather than isolated</li>
+          <li>One article, one run, so nothing here speaks to build-to-build repeatability</li>
+        </ul>
+
         <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+        <p>The model was accurate about the thing it modelled and silent about the thing that cost
+          the most. Predicted peak force landed within 7% of measurement, which is the part of the
+          analysis I would trust again, while the 13 mm of take-up at the start of the stroke was
+          not an error in a modelled quantity but an unmodelled quantity altogether. Slack,
+          clearance, and preload now go into the model before I spend effort refining numbers that
+          are already close. A 1 N predicted error sitting next to a 33 N measured one is a useful
+          reminder that an optimizer's precision says nothing about its accuracy.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Replace with your own exports, keeping these filenames or editing the src. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+          <img src="../images/spring-lever-device.jpg" alt="[Describe the as-built device for screen readers]">
+          <figcaption>Figure 2. [Add a photograph of the built device. Every other image of this
+          project is CAD or analysis output.]</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+          <img src="../images/spring-lever-force-displacement.png" alt="Measured force against displacement over the 50 mm stroke, showing no force for the first 13 mm and a hysteresis loop between the loading and unloading branches">
+          <figcaption>Figure 3. Measured force-displacement result: 186 N peak, 53 g, 33 N RMS
+          error. The flat region out to roughly 13 mm and the gap between the loading and
+          unloading branches are where the error came from.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+          <img src="../images/spring-lever-fea-frame.png" alt="Finite element von Mises stress result on the frame under the design load">
+          <figcaption>Figure 4. Static stress on the frame under the resolved design load, used
+          to check the members the inverse analysis had identified as critical.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+          <img src="../images/spring-lever-fea-buckling.png" alt="First buckling mode of the frame showing displacement of the two compression legs">
+          <figcaption>Figure 5. First buckling mode of the frame. [Add the applied load the 5.919
+          factor was computed against.]</figcaption>
+          </figure>
+          <figure>
+          <img src="../images/spring-lever-inverse-analysis.jpg" alt="Handwritten inverse analysis solving axial, bending, and combined stress criteria for the required member sections">
+          <figcaption>Figure 6. Inverse sizing by hand. Each criterion is solved for the section
+          it requires rather than checked against a section already chosen.</figcaption>
           </figure>
         </div>
       </section>
 
       <nav class="pager" aria-label="Project navigation">
-        <a href="project-04.html">Previous: ME 103 Final Project</a>
-        <a href="project-06.html">Next: Thrust Stand</a>
+        <a href="project-04.html">Previous: Motor-Driven Impulse Machine (ME 104)</a>
+        <a href="project-06.html">Next: GROOVA: Hand-Cranked Turntable Mechanism (ME 102)</a>
       </nav>
 
     </div>
@@ -181,12 +354,13 @@
       <table class="spec-table">
         <caption>Project summary</caption>
         <tbody>
-          <tr><th scope="row">Category</th><td>Manufacturing</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Category</th><td>Mechanical Design, Prototyping, Test Engineering</td></tr>
+          <tr><th scope="row">Timeframe</th><td>Spring Quarter 2026</td></tr>
+          <tr><th scope="row">Context</th><td>ME 104, Mechanical Systems Design, second design project</td></tr>
+          <tr><th scope="row">Team</th><td>Two people</td></tr>
+          <tr><th scope="row">My focus</th><td>Member sizing, FEA, CAD, fabrication</td></tr>
+          <tr><th scope="row">Tools</th><td>Fusion 360, MTS load frame, [add fabrication equipment]</td></tr>
+          <tr><th scope="row">Measured</th><td>186 N peak, 53 g, 33 N RMS force error</td></tr>
         </tbody>
       </table>
     </aside>

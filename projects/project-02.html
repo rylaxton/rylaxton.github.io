@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SkyCool Systems PVC Jacketing Spring Clip &mdash; Ryan Laxton</title>
-  <meta name="description" content="Redesign and validation of an extrudable plastic spring clip that retains jacketing on 2.5 in nominal PVC pipe, sized by hand calculation and a MATLAB design sweep.">
+  <title>300 lbf Liquid Engine Thrust Stand &mdash; Ryan Laxton</title>
+  <meta name="description" content="Design, analysis, and fabrication of a welded steel thrust stand for a 300 lbf liquid bipropellant rocket engine, now in service for cold-flow testing at Cardinal Propulsion Lab.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -33,13 +33,19 @@
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
     <ul class="tags">
       <li class="tag">Mechanical Design</li>
-      <li class="tag">Prototyping</li>
       <li class="tag">Test Engineering</li>
+      <li class="tag">Propulsion Systems</li>
     </ul>
-    <h1>SkyCool Systems PVC Jacketing Spring Clip</h1>
-    <p class="lead">An extrudable plastic spring clip that retains jacketing on 2.5 in nominal
-      PVC pipe, sized from a closed-form bending model and a MATLAB design sweep, then
-      validated in FEA and across six printed prototypes.</p>
+    <h1>300 lbf Liquid Engine Thrust Stand</h1>
+    <p class="lead">A welded steel thrust stand for a 300 lbf liquid bipropellant rocket engine,
+      taken from requirements through trade studies, hand analysis, FEA, and a scaled prototype
+      to a fabricated structure that has since supported six to eight cold-flow test
+      campaigns.</p>
+    <figure class="project-hero">
+      <img src="../images/thrust-stand-built.jpg" alt="The welded steel thrust stand as fabricated">
+      <figcaption>Figure 1. [Add a photo of the welded steel stand as built &mdash; this is
+      the most important image on the page.]</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -49,283 +55,303 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>Outdoor PVC piping at SkyCool Systems is wrapped in a protective jacketing that has
-          to be held against the pipe by a clip. The clip sits outside for years, so it has to
-          resist UV and corrosion, retain the jacketing without loosening, and be cheap enough
-          to produce in quantity. The part is a C-shaped spring clip that is spread by hand,
-          passed over the pipe outer diameter, and allowed to snap closed around it.</p>
-        <p>I designed the clip as a constant rectangular cross section so it could be produced
-          by extrusion, which keeps the per-part cost low and scales to volume. Plastic was
-          chosen over metal deliberately: the clip has to store a large installation deflection
-          without yielding, and a lower elastic modulus does exactly that at a given geometry,
-          while also removing any corrosion concern.</p>
-        <p>[If this replaced an earlier clip design, describe what it was and what was wrong
-          with it here &mdash; a before-and-after comparison is the most useful framing for a
-          reader.]</p>
+        <p>Cardinal Propulsion Lab is developing a liquid bipropellant, regeneratively cooled
+          rocket engine rated to 300 lbf with a nine-second burn, roughly a foot long and 5.5 in
+          at maximum diameter. Testing it requires ground support hardware that holds the engine
+          fixed against its own thrust, keeps people and hardware safe through repeated firings,
+          and lets thrust be measured accurately enough to be worth collecting.</p>
+        <p>I led the design of that thrust stand as Test and Ground Support Equipment Co-Lead.
+          The result is a horizontal welded structure of A500 steel square tube with A36 plate at
+          each end: the engine's injector manifold bolts to three load cells, the load cells bolt
+          to a front thrust plate, and a rear plate bolts to a structural I-beam so thrust reacts
+          into the building rather than into ballast. It was fabricated in early 2026 and has been
+          in service since.</p>
+        <p>The ground electronics, sensor selection, and data acquisition for this test setup are
+          covered separately in my
+          <a href="project-01.html">Cardinal Propulsion Lab electrical ground system</a>
+          project.</p>
       </section>
 
       <section>
-        <h2>Objective and problem</h2>
-        <p>The clip has to spread far enough to clear a 2.5 in outer diameter without yielding,
-          yet close with enough force to hold the jacketing in place. Those two goals pull
-          against each other: the clip behaves as a spring, so every additional inch of
-          installation deflection raises both the installation force and the peak bending
-          stress. The design problem was to find the geometry and material that satisfy both
-          ends of that trade with margin against yield.</p>
-        <p>Two levers were available. Widening the relaxed throat opening reduces the deflection
-          each arm has to travel to clear the pipe. Selecting a lower-modulus material reduces
-          the stress produced by whatever deflection remains.</p>
-        <ul>
-          <li>Pass over a 2.5 in nominal PVC outer diameter with a factor of safety of at least
-            2.0 against yield in bending</li>
-          <li>Retain the jacketing against the pipe over a multi-year outdoor service life</li>
-          <li>Resist UV exposure and corrosion</li>
-          <li>Hold a constant cross section so the part can be extruded rather than molded</li>
-          <li>Install and remove by hand, without tools</li>
-          <li>Keep material and manufacturing cost low at production quantity</li>
-        </ul>
+        <h2>Objective and requirements</h2>
+        <p>The governing requirement was structural: survive the engine's thrust with a factor of
+          safety of 3 against yield and 5 against ultimate, because a failure during a live
+          combustion test injures people and destroys test articles. The secondary question was
+          whether the structure would deform enough under load to corrupt the thrust measurement
+          &mdash; a stand that survives but flexes gives you bad data and can compress the
+          propellant feedline.</p>
+        <p>Those sat alongside a set of practical requirements that mattered just as much for a
+          student team sharing a test site.</p>
+        <table class="spec-table">
+          <caption>Engineering requirements and how each was measured</caption>
+          <tbody>
+            <tr><th scope="row">Structural margin</th><td>FoS 3 to yield, 5 to ultimate, verified by hand calculation and FEA</td></tr>
+            <tr><th scope="row">Constrain the engine</th><td>No motion along the thrust vector during firing</td></tr>
+            <tr><th scope="row">Measurement fidelity</th><td>Deflection small enough not to bias load cell readings</td></tr>
+            <tr><th scope="row">Mobility</th><td>Fits in a pickup bed, carried by no more than two people</td></tr>
+            <tr><th scope="row">Modularity</th><td>Minimal removable components, system assembly under one hour</td></tr>
+            <tr><th scope="row">Engine access</th><td>Few components around access points for inspection and adjustment</td></tr>
+            <tr><th scope="row">Fluid and avionics routing</th><td>Reduced clutter between engine and feedline or avionics origin</td></tr>
+            <tr><th scope="row">Budget</th><td>Within the propulsion budget, via lean design and reasonable margins</td></tr>
+          </tbody>
+        </table>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>This was a solo project during my internship. I owned it end to end: defining the
-          requirements from the application constraints, developing the geometry, deriving the
-          bending and statics model by hand, writing the MATLAB script that sized the part,
-          building the CAD and running the FEA in Fusion 360, printing the prototypes, and
-          running the installation testing on the actual pipe and jacketing.</p>
+        <p>Test and Ground Support Equipment Co-Lead. I owned the thrust stand design from start
+          to finish: requirements, the configuration and material trade studies, all CAD
+          iterations, the hand calculations, and the structural FEA. I also ran the design through
+          ME 80 as a course project, where a teammate independently reproduced the FEA and a third
+          built and tested the scaled wooden prototype, giving me a second check on work I had
+          already done for the team.</p>
       </section>
 
       <section>
         <h2>Engineering process</h2>
         <ol class="process">
-          <li><strong>Requirements.</strong> Translated the application constraints &mdash; UV
-            and corrosion resistance, multi-year outdoor life, jacketing retention, low cost,
-            fast to manufacture &mdash; into a mechanical requirement: survive the installation
-            deflection over a 2.5 in outer diameter with a factor of safety of 2.0 against
-            yield.</li>
-          <li><strong>Concept development.</strong> Identified installation deflection as the
-            governing driver of both force and stress, and targeted it directly by widening the
-            relaxed throat opening and selecting a low-modulus material. Added rounded tips so
-            the clip can be pried off by hand when the jacketing needs to come away.</li>
-          <li><strong>Statics.</strong> Worked a force and moment balance on the clip. Symmetry
-            gives equal loads at the two tips and a crown reaction of twice the tip load, so the
-            problem reduces to a single arm carrying a spring force of the form F = k&delta;.</li>
-          <li><strong>Stress model.</strong> Treated each half of the clip as a cantilever beam
-            deflected far enough for the tip to clear the pipe diameter. Bending is the governing
-            failure mode, so the design constraint becomes <code>&sigma; = My/I</code> with
-            <code>I = lt&sup3;/12</code> and <code>y = t/2</code> for the rectangular section.</li>
-          <li><strong>Closed-form sizing.</strong> Combined the beam model with the clip geometry,
-            taking the effective arm length as the arc length from tip to crown rather than a
-            straight lever arm, which is the more conservative and more physically realistic
-            choice. That collapses to a single sizing relation,
-            <code>t = 2&middot;Sy&middot;L&sup2; / (3&middot;E&middot;&delta;&middot;FoS)</code>,
-            relating wall thickness directly to throat opening for a given material and factor
-            of safety.</li>
-          <li><strong>MATLAB design sweep.</strong> Swept 200 relaxed throat openings from 0.25
-            to 0.75 of the pipe diameter. For each, the script computes required deflection per
-            arm, stress-limited thickness, arm stiffness, installation force, installation
-            stress, and the resulting factor of safety, then flags the openings that stay under
-            the allowable stress.</li>
-          <li><strong>CAD.</strong> Modeled the selected geometry in Fusion 360 with a constant
-            rectangular cross section for extrusion, the widened throat opening from the sweep,
-            and rounded tips.</li>
-          <li><strong>FEA.</strong> Ran a Fusion 360 study using ASA material properties and a
-            prescribed displacement equal to the installation deflection, to check the hand
-            calculation and confirm where the part is actually loaded.</li>
-          <li><strong>Prototyping.</strong> Printed six prototypes. The first three were PLA,
-            chosen purely for filament availability. I then switched to ABS, which sits in the
-            same polymer family as ASA with comparable stiffness and strength, making it a
-            reasonable mechanical stand-in &mdash; ASA's advantage over ABS is UV stability
-            rather than mechanical performance.</li>
-          <li><strong>Testing.</strong> Installed and removed each prototype on the actual pipe
-            and jacketing through 10 cycles, checking after each that the clip had not taken a
-            permanent set severe enough to stop it clamping.</li>
-          <li><strong>Manufacturing and handoff.</strong> The constant cross section was chosen
-            specifically to enable extrusion, but sourcing low-volume ASA extrusion at an
-            acceptable price proved to be the real constraint on the project. My internship ended
-            before extruded parts were ordered, so the design was handed off at the validated
-            prototype stage.</li>
+          <li><strong>Research and requirements.</strong> Surveyed thrust stands built by other
+            university rocket teams, then wrote requirements specific to our engine, test site,
+            and team, each with a stated purpose and a performance metric rather than a vague
+            goal.</li>
+          <li><strong>Configuration trade.</strong> Scored horizontal against vertical on
+            complexity, cost, engine access, proneness to specific failure modes, and size.
+            Horizontal won: it fires directly into the frame so members carry compression rather
+            than tension, it needs no flame diverter, it has no gravity tare, and it is
+            substantially cheaper. The cost is that it does not represent flight orientation and
+            can trap propellant.</li>
+          <li><strong>Joining trade.</strong> Scored welding against bolted hardware on
+            complexity, cost, load-bearing predictability, and strength. Welding won on cost and
+            strength and on being able to join faces of differing geometry in one operation; its
+            weakness is that weld quality is hard to verify after the fact.</li>
+          <li><strong>Material trade.</strong> Scored A500 steel against 6061-T6 aluminum on
+            weight, strength, stiffness, cost, and machinability, cross-referenced against an
+            Ashby modulus-versus-cost-per-volume plot. Steel won on strength, stiffness, and cost;
+            aluminum's advantage was purely mass, at 2.9 times lower density but 1.5 times the
+            price per length.</li>
+          <li><strong>Design iteration.</strong> The first CAD was heavily over-built, with
+            X-trusses on both sides and the top plus two forward diagonals. The second removed
+            most of that redundancy and introduced the three-hole tripod load cell pattern, so
+            that any non-axial thrust component shows up as a difference between the three
+            readings instead of disappearing into a single-axis measurement. The third removed
+            the front legs: I had added them for ground clearance and anti-tipping before working
+            out that the engine's weight produces a negligible moment against the center of
+            gravity of a steel structure this heavy.</li>
+          <li><strong>Plate analysis.</strong> Plate bending under a load distributed over a small
+            central area is not a case covered in statics or mechanics of materials, and the
+            closed-form routes I found mostly required finite element methods. I used Roark's
+            Formulas for Stress and Strain, Table 11.4 case 1b, treating the plate as simply
+            supported on all four edges with the load applied over the circle containing the three
+            load cells.</li>
+          <li><strong>Frame analysis.</strong> For the members, I assumed a rigid front plate and
+            rigid upper verticals with the thrust distributed, set the z-direction displacements
+            equal using <code>d = FL/EA</code>, and solved the resulting system with a moment
+            balance for the member loads.</li>
+          <li><strong>FEA.</strong> Fixed the rear plate to represent bolting into the I-beam and
+            applied 300 lbf, checking von Mises stress and displacement. Ran a second case with
+            the front plate removed to isolate its effect on the horizontal members.</li>
+          <li><strong>Scaled prototype.</strong> Built a three-quarter-scale wooden version, driven
+            by the fact that nominal 2&times;2 lumber is actually 1.5 in square. Plates were laser
+            cut from 1/4 in birch plywood and the assembly was bonded with wood glue.</li>
+          <li><strong>Load testing.</strong> Loaded the prototype vertically with incrementally
+            increasing weight, then ran a separate plate deflection test on a thinner coupon when
+            the full prototype proved too stiff to deflect measurably.</li>
+          <li><strong>Fabrication.</strong> Ordered the steel and had the structure welded by a
+            professional welding company under an arrangement with the team, so cost was materials
+            only.</li>
+          <li><strong>Service.</strong> Installed in the team workspace and used for cold-flow
+            test campaigns on the engine.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements and selected values</h3>
+        <h3>Structure</h3>
         <table class="spec-table">
-          <caption>Design point from the MATLAB sweep, with the FEA check</caption>
+          <caption>As-built configuration</caption>
           <tbody>
-            <tr><th scope="row">Pipe size</th><td>2.5 in nominal PVC</td></tr>
-            <tr><th scope="row">Clip width</th><td>0.50 in</td></tr>
-            <tr><th scope="row">Production material</th><td>ASA (extruded)</td></tr>
-            <tr><th scope="row">Elastic modulus</th><td>308,000 psi</td></tr>
-            <tr><th scope="row">Yield strength</th><td>8,500 psi</td></tr>
-            <tr><th scope="row">Required factor of safety</th><td>2.0</td></tr>
-            <tr><th scope="row">Allowable bending stress</th><td>4,250 psi</td></tr>
-            <tr><th scope="row">Selected wall thickness</th><td>0.19 in</td></tr>
-            <tr><th scope="row">Minimum viable throat opening</th><td>1.57 in</td></tr>
-            <tr><th scope="row">Install deflection per arm</th><td>0.47 in</td></tr>
-            <tr><th scope="row">Calculated install force</th><td>8.5 lbf total, 4.25 lbf per arm</td></tr>
-            <tr><th scope="row">Calculated install stress</th><td>4,240 psi (FoS 2.00)</td></tr>
-            <tr><th scope="row">FEA peak von Mises stress</th><td>4,254 psi (FoS 1.998)</td></tr>
-            <tr><th scope="row">Valid design window</th><td>50 of 200 openings, 1.57 to 1.88 in</td></tr>
-            <tr><th scope="row">Prototypes built</th><td>6 (first three PLA, remainder ABS)</td></tr>
-            <tr><th scope="row">Install and removal cycles</th><td>10 per prototype</td></tr>
+            <tr><th scope="row">Configuration</th><td>Horizontal, rear plate bolted to a structural I-beam</td></tr>
+            <tr><th scope="row">Frame</th><td>A500 steel square tube, 2 &times; 2 &times; 3/16 in (1.36 in&sup2;)</td></tr>
+            <tr><th scope="row">Plates</th><td>A36 steel, 13.75 &times; 10 &times; 3/8 in, front and rear</td></tr>
+            <tr><th scope="row">Overall envelope</th><td>10 in wide, 14.75 in plate to plate, 14 in tall</td></tr>
+            <tr><th scope="row">Mass</th><td>Approximately 70 to 80 lb</td></tr>
+            <tr><th scope="row">Joining</th><td>Welded frame, professionally welded; bolted plate and load cell interfaces</td></tr>
+            <tr><th scope="row">Load cell layout</th><td>Three cells in a tripod pattern between injector manifold and thrust plate</td></tr>
+            <tr><th scope="row">Engine</th><td>300 lbf liquid bipropellant, regeneratively cooled, 9 s burn</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
+        <h3>Analysis results</h3>
+        <table class="spec-table">
+          <caption>Hand calculation and FEA against a required FoS of 3 to yield, 5 to ultimate</caption>
+          <tbody>
+            <tr><th scope="row">Thrust plate peak stress</th><td>2.01 ksi at 300 lbf (Roark's 11.4-1b, &beta; = 0.7716)</td></tr>
+            <tr><th scope="row">Thrust plate FoS</th><td>17.9 to yield, 28.9 to ultimate (A36, 36 / 58 ksi)</td></tr>
+            <tr><th scope="row">Governing member load</th><td>422.6 lbf in the most loaded vertical</td></tr>
+            <tr><th scope="row">Frame peak stress</th><td>468.8 psi</td></tr>
+            <tr><th scope="row">Frame FoS, hand calculation</th><td>98.1 (A500 Grade B, 46 ksi yield)</td></tr>
+            <tr><th scope="row">Frame FoS, FEA</th><td>97.5, agreeing with the hand calculation to 0.7%</td></tr>
+            <tr><th scope="row">FEA peak von Mises</th><td>2,168 psi</td></tr>
+            <tr><th scope="row">FEA peak displacement</th><td>4.54 &times; 10&#8315;&#8308; in</td></tr>
+          </tbody>
+        </table>
+        <p class="note">The member calculations were run on a 0.9024 in&sup2; section, equivalent
+          to a 0.120 in wall, while the structure was built from 3/16 in wall at 1.36 in&sup2;.
+          The as-built frame therefore carries about 1.5 times the section assumed in analysis,
+          making the reported margins conservative.</p>
+
+        <h3>Analysis methods and assumptions</h3>
         <ul>
-          <li>Force and moment balance establishing symmetric tip loads and a crown reaction of
-            twice the tip load, reducing the clip to a single spring arm</li>
-          <li>Cantilever bending model with the arm length taken as arc length,
-            <code>L = R&theta;</code>, rather than a straight lever arm</li>
-          <li>Sizing relation
-            <code>t = 2&middot;Sy&middot;L&sup2; / (3&middot;E&middot;&delta;&middot;FoS)</code>,
-            written in terms of pipe radius and relaxed throat position so thickness and opening
-            can be traded directly against one another</li>
-          <li>Arm stiffness <code>k = 3EI/L&sup3;</code> used to convert the required deflection
-            into an installation force, so the clip could be checked against what a hand can
-            comfortably apply as well as against yield</li>
-          <li>Factor of safety computed across the full sweep rather than at a single point,
-            producing a design window instead of one answer</li>
+          <li>Thrust plate: <code>&sigma;max = (3W/2&pi;t&sup2;)[(1+&nu;)ln(2b/&pi;r) + &beta;]</code>,
+            simply supported on all four edges, load distributed over the 2.5 in radius circle
+            through the load cell positions, &beta; interpolated from the Roark's table</li>
+          <li>Frame: rigid front plate and rigid upper verticals, distributed 300 lbf, equal
+            z-displacements solved with <code>d = FL/EA</code> plus a moment balance</li>
+          <li>Neither hand model captured plate slots or bolted connections at the I-beam
+            interface, and welds were not modeled in FEA</li>
+          <li>Keeping most members the same length was a deliberate choice that made the
+            displacement and symmetry assumptions defensible</li>
         </ul>
 
-        <h3>Material selection</h3>
+        <h3>Failure modes considered</h3>
         <ul>
-          <li>Plastic over metal, on the basis that a lower elastic modulus stores the required
-            installation deflection at lower stress, with corrosion resistance as a second
-            benefit</li>
-          <li>ASA specified for production for its UV stability in long-term outdoor exposure</li>
-          <li>ABS used for later prototypes as a mechanical stand-in for ASA, since the two are
-            closely related and differ mainly in weathering performance</li>
-          <li>Material properties taken from published plastics property data rather than a
-            supplier datasheet for a specific grade, which is the weakest input in the
-            calculation chain and would be worth confirming before production</li>
+          <li>Weld joint failure, leading to overall structural collapse; mitigated by orienting
+            welds normal to load and specifying generous weld thickness margin</li>
+          <li>Thrust plate deflection, causing incorrect load cell readings and feedline
+            compression; mitigated with thicker plate and supporting diagonals</li>
+          <li>Rear plate deflection, causing feedline compression and localized stress; mitigated
+            by thicker plate and minimizing the area mismatch between plate and I-beam
+            section</li>
+          <li>Engine linear and angular displacement, producing non-axial thrust readings and load
+            cell damage; mitigated by supporting the engine at three points</li>
+          <li>Fatigue from repeated firings was identified but not tested, on the judgment that
+            the structure will not see enough cycles for it to govern</li>
         </ul>
 
-        <h3>Manufacturing</h3>
+        <h3>Prototype and test</h3>
         <ul>
-          <li>Constant rectangular cross section, selected so the part could be extruded and cut
-            to width rather than injection molded, avoiding tooling cost</li>
-          <li>Prototypes produced by FDM 3D printing</li>
-          <li>Sourcing low-volume ASA extrusion at an acceptable price was the limiting practical
-            constraint on the project</li>
+          <li>Three-quarter-scale wooden prototype: nominal 2&times;2 lumber at an actual 1.5 in
+            square set the scale factor; plates laser cut from 1/4 in birch plywood, which scaled
+            to 66.7% rather than 75% because of stock availability</li>
+          <li>Wood selected for rapid prototyping using a strength versus relative cost per unit
+            volume Ashby plot, accepting that yield strength, modulus, and ductility all differ
+            substantially from steel</li>
+          <li>Loaded vertically with incrementally increasing weight to roughly 250 lbf with no
+            yielding, no frame failure, and no observable plate deflection &mdash; team members
+            stood on the structure without breaking it</li>
+          <li>Plate deflection measured separately on a 1/8 in birch coupon of larger area at the
+            same length-to-width ratio, photographed before and after loading, with angle change
+            extracted by pixel measurement in Fiji and converted to deflection through
+            <code>&delta; = 7.25&middot;sin&theta;</code></li>
+          <li>Seven load points from 0 to 24.25 lbf produced deflections from 0 to 0.238 in</li>
         </ul>
 
         <h3>Software and tools</h3>
         <ul>
-          <li>Fusion 360 for CAD and finite element analysis</li>
-          <li>MATLAB for the parametric design sweep and plots</li>
-          <li>FDM 3D printing for prototypes</li>
+          <li>CAD and FEA in Autodesk Fusion</li>
+          <li>MATLAB for the plate stress calculation</li>
+          <li>Roark's Formulas for Stress and Strain for the plate bending case</li>
+          <li>Ashby material selection charts; laser cutting and wood shop for the prototype</li>
+          <li>Fiji image analysis for deflection measurement</li>
         </ul>
-
-        <h3>Test procedure</h3>
-        <ol>
-          <li>Print the prototype and confirm the as-built geometry against the CAD model</li>
-          <li>Spread the clip by hand and pass it over the 2.5 in nominal PVC pipe with the
-            jacketing in place</li>
-          <li>Confirm the clip snaps closed and holds the jacketing against the pipe</li>
-          <li>Remove the clip by hand using the rounded tips</li>
-          <li>Repeat for 10 install and removal cycles</li>
-          <li>Inspect between cycles for cracking or permanent set; the pass criterion is that
-            the clip still clamps the jacketing after the tenth cycle</li>
-        </ol>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>The sweep produced a defined design window rather than a single answer: at a 0.19
-            in wall thickness, 50 of the 200 throat openings evaluated (1.57 to 1.88 in) hold a
-            factor of safety of at least 2.0 against yield during installation</li>
-          <li>At the selected design point, each arm deflects 0.47 in to clear the pipe, at a
-            calculated installation force of 8.5 lbf total &mdash; low enough to install by
-            hand, which was a requirement the stress calculation alone would not have caught</li>
-          <li>FEA returned a peak von Mises stress of 4,254 psi against a hand-calculated
-            allowable of 4,250 psi, agreement within 0.09% and an implied factor of safety of
-            1.998 against the required 2.0. Two independent methods converging that closely
-            gave real confidence in the sizing relation</li>
-          <li>FEA also confirmed bending as the governing failure mode and located the peak
-            stress where the hand model predicted it</li>
-          <li>All six prototypes survived 10 install and removal cycles on the actual pipe and
-            jacketing without taking a permanent set that compromised clamping
-            [confirm whether the 10-cycle test was run on the PLA prototypes, the ABS
-            prototypes, or both]</li>
-          <li>As-built prototype geometry was confirmed against the CAD model</li>
-          <li>Because the sizing script takes pipe diameter as an input, the same method
-            regenerates geometry for larger pipe sizes; the built design targeted 2.5 in
-            nominal, with larger diameters as the intended extension</li>
+          <li><strong>The stand was built and is in service.</strong> It has supported six to
+            eight cold-flow campaigns on the engine, used to measure injector discharge coefficients
+            so that hot-fire performance can be predicted ahead of a live test. Its value there is
+            that it holds the engine in the same orientation it will occupy during a hot fire,
+            which a simpler fixture would not</li>
+          <li>Both structural questions were answered affirmatively: the design clears the
+            required FoS of 3 to yield and 5 to ultimate by a wide margin, and predicted
+            deflection of 4.5 &times; 10&#8315;&#8308; in is far too small to bias the thrust
+            measurement</li>
+          <li>The hand calculation and the FEA agreed on frame factor of safety to within 0.7%,
+            98.1 against 97.5, which is the strongest validation result in the project &mdash; two
+            independent methods on the same structure</li>
+          <li>The thrust plate is correctly identified as the limiting component, at 17.9 to yield
+            against the frame's 98, and the FEA agreed that the front plate and the left-side
+            verticals are where bending concentrates</li>
+          <li>Fabrication cost was materials only, since welding was donated under a team
+            arrangement</li>
+          <li><strong>It has never been used for a hot fire.</strong> At 70 to 80 lb it is too
+            heavy and bulky to move to the hot-fire site conveniently, and the team uses smaller
+            stands there instead</li>
         </ul>
+
+        <h3>What the mass outcome actually taught me</h3>
+        <p>A factor of safety approaching 100 on the frame is not a good result. It is proof of
+          over-design, and the mass that came with it is exactly why the stand does not get taken
+          to hot fire. Mobility was written into the requirements from the start &mdash; fit in a
+          pickup, carried by two people &mdash; but in the trade studies I weighted strength and
+          cost above it, and the structure I ended up with satisfies the requirement on paper
+          while being annoying enough in practice that people reach for something else.</p>
+        <p>The right answer for the next iteration is a smaller stand with a margin actually near
+          the specified 3 and 5, sized for transport rather than sized for certainty. That
+          conclusion came from the hardware being used, not from any analysis I ran, and it is the
+          most useful thing this project produced.</p>
 
         <h3>Limitations</h3>
         <ul>
-          <li>The first three prototypes were PLA, which at a prescribed deflection sees
-            meaningfully higher stress than ASA would at the same geometry. Surviving in PLA is
-            a conservative result, but it is not direct evidence about ASA</li>
-          <li>Printed parts are anisotropic and layer adhesion is orientation dependent, so the
-            prototypes validate geometry, fit, and function rather than the mechanical
-            performance of a finished extruded part</li>
-          <li>Testing covered 10 install cycles, not long-term outdoor exposure, UV degradation,
-            or creep under sustained clamping load</li>
-          <li>Extruded ASA parts were never produced, so the production design is analytically
-            and functionally validated but not manufacturing validated</li>
+          <li>Welds were never modeled in FEA, and weld quality on the as-built structure has not
+            been inspected beyond visual check &mdash; the joining trade identified this as
+            welding's central weakness and the project did not close it</li>
+          <li>The prototype could not be loaded to failure, so the test confirmed only that the
+            structure comfortably survives 250 lbf, not where it actually breaks</li>
+          <li>The plate deflection data is noisy and not monotonic, with too few points to
+            establish a relationship, and the absolute deflections are far larger than the FEA
+            because the coupon was thinner, larger, and lower in modulus. It demonstrates the
+            right trend and nothing more</li>
+          <li>Hand models assumed rigid plates and rigid verticals, which the FEA showed to be
+            wrong &mdash; both bend. Relaxing those assumptions is the obvious next step for the
+            analysis</li>
+          <li>Fatigue and thermal effects on the welds were identified but not analyzed or
+            tested</li>
         </ul>
-
-        <h3>What I took from it</h3>
-        <p>The engineering that decided this project was not the stress analysis. Designing a
-          geometry that was cheap to make in principle was straightforward; actually sourcing
-          low-volume extrusion of the right material at an acceptable price was the part that
-          stalled, and I would go looking for that constraint much earlier next time. The other
-          thing I would keep is the sweep: solving for a window of valid geometry instead of one
-          point meant I could move the throat opening later without redoing the analysis.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
-        <!-- Export these from the deck and name the files to match, or change the
-             src attributes to whatever you name them. -->
+        <!-- Replace with your own exports, keeping these filenames or editing the src. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/spring-clip-cad-iso.png" alt="Isometric CAD view of the C-shaped spring clip">
-            <figcaption>Figure 1. Fusion 360 model of the clip. Constant rectangular cross
-              section for extrusion, widened throat opening to cut installation deflection, and
-              rounded tips for hand removal.</figcaption>
+          <img src="../images/thrust-stand-coldflow.jpg" alt="The thrust stand holding the engine during a cold-flow test">
+          <figcaption>Figure 2. [Add a photo of the stand in use during a cold flow, with the
+          engine mounted.]</figcaption>
           </figure>
           <figure>
-            <img src="../images/spring-clip-force-balance.png" alt="Free body diagram showing tip loads and crown reaction on the clip">
-            <figcaption>Figure 2. Force and moment balance. Symmetry gives equal tip loads and a
-              crown reaction of twice the tip load, reducing the clip to a single spring
-              arm.</figcaption>
+          <img src="../images/thrust-stand-cad.png" alt="Final CAD of the thrust stand with engine and load cells mounted">
+          <figcaption>Figure 3. Final CAD. The injector manifold bolts to three load cells, the
+          load cells bolt to the thrust plate, and the rear plate bolts to a structural
+          I-beam.</figcaption>
           </figure>
           <figure>
-            <img src="../images/spring-clip-stress-sweep.png" alt="Plot of installation stress against throat opening with the allowable stress line">
-            <figcaption>Figure 3. Installation stress against relaxed throat opening, with the
-              4,250 psi allowable marked. The crossing point sets the minimum viable opening of
-              1.57 in.</figcaption>
+          <img src="../images/thrust-stand-fea.png" alt="FEA results showing von Mises stress and displacement on the thrust stand">
+          <figcaption>Figure 4. FEA at 300 lbf with the rear plate fixed. Peak von Mises stress
+          of 2,168 psi and peak displacement of 4.54 &times; 10&#8315;&#8308; in; welds not
+          modeled.</figcaption>
           </figure>
           <figure>
-            <img src="../images/spring-clip-fea.png" alt="Fusion 360 finite element result showing von Mises stress on the deflected clip">
-            <figcaption>Figure 4. FEA under prescribed installation displacement. Peak von Mises
-              stress of 4,254 psi, within 0.09% of the hand-calculated allowable, confirming
-              bending as the governing mode.</figcaption>
+          <img src="../images/thrust-stand-roarks.png" alt="Hand calculation of maximum plate stress using Roark's formulas">
+          <figcaption>Figure 5. Plate stress by Roark's Table 11.4, with &beta; interpolated
+          from the table and the load treated as distributed over the load cell
+          circle.</figcaption>
           </figure>
           <figure>
-            <img src="../images/spring-clip-prototypes.jpg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 5. [Add photo of the printed prototypes, or delete this
-              figure.]</figcaption>
-          </figure>
-          <figure>
-            <img src="../images/spring-clip-installed.jpg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 6. [Add photo of a clip installed on the pipe with jacketing, or
-              delete this figure.]</figcaption>
+          <img src="../images/thrust-stand-prototype.jpg" alt="Three-quarter-scale wooden prototype beside the final welded structure">
+          <figcaption>Figure 6. The three-quarter-scale wooden prototype, scaled to match
+          nominal 2&times;2 lumber's actual 1.5 in section, alongside the final
+          structure.</figcaption>
           </figure>
         </div>
       </section>
 
       <nav class="pager" aria-label="Project navigation">
         <a href="project-01.html">Previous: Cardinal Propulsion Lab Electrical Ground System</a>
-        <a href="project-03.html">Next: Motor-Driven Impulse Machine (ME 104)</a>
+        <a href="project-03.html">Next: SkyCool Systems PVC Jacketing Spring Clip</a>
       </nav>
 
     </div>
@@ -335,12 +361,13 @@
       <table class="spec-table">
         <caption>Project summary</caption>
         <tbody>
-          <tr><th scope="row">Category</th><td>Mechanical Design, Prototyping, Test Engineering</td></tr>
-          <tr><th scope="row">Timeframe</th><td>July to August 2026</td></tr>
-          <tr><th scope="row">Context</th><td>Internship, SkyCool Systems</td></tr>
-          <tr><th scope="row">Team</th><td>Solo</td></tr>
-          <tr><th scope="row">My focus</th><td>Full scope: requirements through prototype testing</td></tr>
-          <tr><th scope="row">Tools</th><td>Fusion 360, MATLAB, FDM printing</td></tr>
+          <tr><th scope="row">Category</th><td>Mechanical Design, Test Engineering, Propulsion Systems</td></tr>
+          <tr><th scope="row">Timeframe</th><td>Design autumn 2025, fabricated early 2026, in service since</td></tr>
+          <tr><th scope="row">Context</th><td>Cardinal Propulsion Lab, also submitted as an ME 80 project</td></tr>
+          <tr><th scope="row">Team</th><td>Team project; stand design owned by me</td></tr>
+          <tr><th scope="row">My role</th><td>Test and GSE Co-Lead: requirements, trades, CAD, hand analysis, FEA</td></tr>
+          <tr><th scope="row">Tools</th><td>Fusion, MATLAB, Roark's, Ashby charts, Fiji</td></tr>
+          <tr><th scope="row">Status</th><td>In service for cold-flow testing</td></tr>
         </tbody>
       </table>
     </aside>

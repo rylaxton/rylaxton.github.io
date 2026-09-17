@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ME 102 Record Player &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <title>Walnut and Bronze Key Shelf (ME 103) &mdash; Ryan Laxton</title>
+  <meta name="description" content="A wall-mounted walnut key shelf combining lathe-turned phosphor bronze knobs and sand-cast silicon bronze brackets, built across turning, foundry, milling, and woodworking in the Stanford Product Realization Lab.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -32,11 +32,18 @@
   <header class="project-head">
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
     <ul class="tags">
+      <li class="tag">Manufacturing</li>
       <li class="tag">Prototyping</li>
-      <li class="tag">Mechanical Design</li>
     </ul>
-    <h1>ME 102 Record Player</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <h1>Walnut and Bronze Key Shelf (ME 103)</h1>
+    <p class="lead">A wall-mounted key shelf in live-edge walnut, with lathe-turned phosphor
+      bronze knobs and sand-cast silicon bronze brackets &mdash; a product realization project
+      spanning turning, foundry, milling, woodworking, and finishing.</p>
+    <figure class="project-hero">
+      <img src="../images/me103-shelf-hero.jpg" alt="The finished walnut key shelf mounted on a wall, with bronze brackets and knobs">
+      <figcaption>Figure 1. The finished piece. Live-edge walnut backboard and shelf,
+      patinated silicon bronze brackets, and turned phosphor bronze knobs.</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -46,133 +53,252 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>ME 103, Product Realization: Design and Making, is built around the Stanford Product
+          Realization Lab. Students take structured labs in the core fabrication processes
+          &mdash; turning, milling, metal forming and joining, and foundry &mdash; and then
+          design and build a final project of their own. The requirement that shapes everything
+          is that the project must use at least two of those core processes substantively.
+          Waterjet cutting, woodworking, and finishing do not count, and using a core process
+          lightly, such as drilling a hole on the mill, is explicitly insufficient.</p>
+        <p>I designed a wall-mounted key holder with a shelf: a live-edge walnut backboard and
+          shelf, three turned phosphor bronze knobs for keys, and two sand-cast silicon bronze
+          brackets carrying the shelf, patinated to an aged finish. The personal brief was
+          straightforward &mdash; my partner and I had just moved in together, and I wanted
+          something for the new place that we would actually use every day.</p>
       </section>
 
       <section>
         <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <p>The real design problem was upstream of the object itself: choose something where
+          two core processes have a genuine reason to exist. It is easy to design a nice piece
+          of furniture and then bolt on a turned part to satisfy a requirement. I wanted the
+          opposite, a piece where the knobs had to be turned and the brackets had to be cast,
+          because that is what the forms and materials called for.</p>
+        <p>Turning earned its place through the knobs: identical repeated parts carrying a taper
+          and an external thread. Casting earned its place through the brackets: a sculptural
+          profile with curves that would be impractical to machine, in a material that takes a
+          patina well.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li>Use at least two core processes substantively, with a completed pattern and a cast
+            part integrated into the final object</li>
+          <li>Produce visually identical knobs, since asymmetry between them would be obvious
+            on an object mounted at eye level</li>
+          <li>Carry the shelf load through the brackets and a joint in the backboard</li>
+          <li>Work within the course budget ceiling of $100 out of pocket plus up to $100 in
+            scavenged material value</li>
+          <li>Fit the quarter's schedule and the lab's available shop time</li>
+          <li>Make three materials &mdash; walnut, phosphor bronze, silicon bronze &mdash; read
+            as one coherent object</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>Solo project. I did the design, all pattern work, all machining, the casting,
+          finishing, woodworking, and assembly.</p>
       </section>
 
       <section>
         <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Concept and scoping.</strong> Worked from a wide idea list down to a short
+            list and then to an approved project, testing each candidate against whether two core
+            processes had a real role in it rather than a decorative one.</li>
+          <li><strong>Bracket design, four iterations.</strong> I wanted the brackets to read as
+            thick tree branches. I modeled that in CAD first and could not get the form to look
+            natural. I then carved a branch pattern by hand from machinable modeling board, which
+            took a long time and looked no better than the CAD version. At that point I dropped
+            the organic direction entirely and moved to a Victorian bracket profile, back in CAD.
+            That was the right call and produced a far better result &mdash; it just arrived
+            later in the quarter than it should have.</li>
+          <li><strong>Turning.</strong> Turned the knobs from scavenged phosphor bronze stock to
+            roughly 0.5 in diameter, each with a taper and a 1/4-20 external thread, working to
+            a written operation sequence so the parts would come out matching. Phosphor bronze
+            proved difficult: its high thermal conductivity meant the work heated quickly and
+            turned gummy, which fought both the cut and the finish.</li>
+          <li><strong>Inspection and rejection.</strong> Four knobs were turned and three were
+            installed. The first one came out too long to match the others, so it was set aside
+            rather than fitted.</li>
+          <li><strong>Pattern and sand casting.</strong> Mounted the final bracket pattern to a
+            fixed pattern board and sand cast the brackets in silicon bronze. Gates were removed
+            and the surfaces filed and sanded to clean up unevenness from the mold.</li>
+          <li><strong>Milling.</strong> Faced the back and top surfaces of each casting to create
+            flat, square mounting datums against the backboard and the underside of the shelf,
+            then drilled and tapped those faces so the brackets could be bolted rather than glued
+            in place.</li>
+          <li><strong>Finish qualification.</strong> Before touching the brackets, I ran the
+            liver of sulfur patina on the hammer from the structured lab, which was the only
+            piece of matching material I had available to test on. Immersion time was the single
+            variable. Two to three minutes went far too dark, so the brackets went in for roughly
+            30 seconds.</li>
+          <li><strong>Woodworking.</strong> Cut the backboard and shelf from live-edge walnut
+            slabs at 1 in thick, with the backboard about 16 in wide. The shelf seats into a dado
+            in the backboard, which I cut on the table saw in small increments, test-fitting
+            between passes until the joint was a friction fit rather than a glue-dependent
+            one.</li>
+          <li><strong>Assembly and finishing.</strong> Glued the shelf into the dado, bolted the
+            brackets through their tapped faces, installed the knobs, and finished the wood with
+            Tried and True linseed oil.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>Object and materials</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>As-built specification</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Backboard</th><td>Live-edge walnut, approx. 16 in wide, 1 in thick</td></tr>
+            <tr><th scope="row">Shelf</th><td>Live-edge walnut, 1 in thick, dado joint</td></tr>
+            <tr><th scope="row">Knobs</th><td>Phosphor bronze, approx. 0.5 in diameter</td></tr>
+            <tr><th scope="row">Knob features</th><td>Taper and 1/4-20 external thread</td></tr>
+            <tr><th scope="row">Knobs turned / installed</th><td>4 / 3</td></tr>
+            <tr><th scope="row">Brackets</th><td>2, sand-cast silicon bronze</td></tr>
+            <tr><th scope="row">Bracket mounting</th><td>Milled datum faces, drilled and tapped 1/4-20</td></tr>
+            <tr><th scope="row">Patina</th><td>Liver of sulfur, approx. 30 s immersion</td></tr>
+            <tr><th scope="row">Wood finish</th><td>Tried and True linseed oil</td></tr>
+            <tr><th scope="row">Core processes used</th><td>Turning and foundry, with milling in support</td></tr>
+            <tr><th scope="row">Bracket design iterations</th><td>4</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
+        <h3>Turning</h3>
         <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
+          <li>Repeated identical parts from scavenged phosphor bronze stock, worked to a written
+            operation sequence so dimensions carried across all four</li>
+          <li>Taper and external thread cut on the manual lathe</li>
+          <li>Phosphor bronze's thermal conductivity drove the machining strategy: the stock
+            heated fast and became gummy, degrading surface finish and making consistent
+            dimensions harder to hold</li>
         </ul>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>Sand casting</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
+          <li>Victorian bracket profile, patterns mounted to a fixed pattern board</li>
+          <li>Silicon bronze poured, gates removed, surfaces filed and sanded before
+            patination</li>
+          <li>[Add the pattern material, and whether you allowed for draft or shrinkage.]</li>
+          <li>[Add how many brackets were poured and whether any were rejected for porosity or
+            short fill.]</li>
         </ul>
 
-        <h3>Materials and manufacturing</h3>
+        <h3>Milling</h3>
         <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>Faced the back and top surfaces of the raw castings to establish flat mounting
+            datums against the wood</li>
+          <li>Drilled and tapped those faces for threaded fasteners, so the brackets are
+            mechanically fastened rather than relying on adhesive</li>
         </ul>
 
-        <h3>Software and tools</h3>
+        <h3>Woodworking and joinery</h3>
         <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
+          <li>Live-edge walnut slabs, laid out to keep bark edges on the visible faces</li>
+          <li>Dado cut on the table saw in incremental passes, test-fitting between cuts, to
+            reach a friction fit rather than cutting to a nominal dimension and shimming</li>
         </ul>
 
-        <h3>Test procedure</h3>
-        <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
-        </ol>
+        <h3>Finishing</h3>
+        <ul>
+          <li>Liver of sulfur patina, with immersion time as the only variable</li>
+          <li>Qualified on a scrap coupon of the same material before committing: 2&ndash;3
+            minutes was far too dark, 30 seconds gave the aged tone I wanted</li>
+          <li>Linseed oil on the walnut, chosen to deepen the dark grain against the warm
+            bronze</li>
+        </ul>
+
+        <h3>Equipment</h3>
+        <ul>
+          <li>Manual lathe, vertical mill, sand casting foundry, table saw, woodworking
+            bench</li>
+          <li>CAD for the bracket profile and pattern</li>
+        </ul>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>Completed and installed; the shelf holds daily items and the knobs hold keys, which
+            was the functional requirement</li>
+          <li>Both core process requirements met substantively: turning with a taper, an external
+            thread, and repeated identical parts; foundry with a completed pattern and cast parts
+            integrated into the finished object</li>
+          <li>Three of four turned knobs matched closely enough to install. The first was
+            rejected for being too long &mdash; caught by inspection before assembly rather than
+            after</li>
+          <li>The patina trial saved the brackets. Testing on a scrap coupon showed 2&ndash;3
+            minutes produced a far darker finish than intended, so the real parts went in for
+            about 30 seconds and came out at the tone I wanted on the first attempt</li>
+          <li>The dado reached a friction fit through incremental test cutting, so the shelf
+            locates itself rather than depending on glue for position</li>
+          <li>Two defects in the finished piece, both minor: bark broke away from the live edge
+            during glue-up of the shelf into the dado, and one knob has a visible step where the
+            taper meets the flat it was supposed to blend into, caused by a tooling error on the
+            manual lathe</li>
+          <li>[Add your approximate bill of materials cost against the $100 out-of-pocket
+            ceiling, if you can reconstruct it.]</li>
         </ul>
+
+        <h3>What I would do differently</h3>
+        <ul>
+          <li>I spent two full design attempts, one in CAD and one carving modeling board, trying
+            to make an organic branch form work before abandoning it. A quick low-fidelity mockup
+            would have told me the same thing in a fraction of the time, and would have left more
+            schedule for the casting</li>
+          <li>The bark on a live edge is fragile and the glue-up is exactly where it gets handled
+            and clamped. I would stabilize or protect it before assembly rather than after</li>
+          <li>The patina experiment varied only immersion time. Dilution and solution temperature
+            also matter, and holding them constant by default rather than by decision means I do
+            not actually know how sensitive the result was</li>
+        </ul>
+
         <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+        <p>The habit worth keeping from this project is qualifying a process on scrap before
+          committing the real part. The patina test cost me a few minutes on a hammer I had
+          already made and it is the reason the brackets came out right the first time. The other
+          lesson is about material behavior driving process: phosphor bronze machines badly
+          because it sheds heat into the tool and the work, and no amount of feed and speed
+          adjustment fully solved it. Knowing that going in would have changed how I planned the
+          knob operations.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Replace with your own exports, keeping these filenames or editing the src. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+          <img src="../images/me103-knobs.jpg" alt="Turned phosphor bronze knobs showing taper and external thread">
+          <figcaption>Figure 2. Turned phosphor bronze knobs. Each carries a taper and a
+          1/4-20 external thread; three of the four matched closely enough to
+          install.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+          <img src="../images/me103-pattern-board.jpg" alt="Bracket patterns mounted to a fixed pattern board for sand casting">
+          <figcaption>Figure 3. Bracket patterns on the fixed pattern board, after four design
+          iterations moved from an organic branch form to this Victorian profile.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+          <img src="../images/me103-brackets-cast.jpg" alt="Raw silicon bronze brackets as they came from the sand mold">
+          <figcaption>Figure 4. Brackets as cast in silicon bronze, before gate removal,
+          filing, and patination.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+          <img src="../images/me103-patina-test.jpg" alt="Structured lab hammer used as a coupon for the liver of sulfur patina trial">
+          <figcaption>Figure 5. The patina trial. The structured-lab hammer was the only
+          matching material available to test on; it showed 2&ndash;3 minutes was far too
+          long.</figcaption>
+          </figure>
+          <figure>
+          <img src="../images/me103-bracket-installed.jpg" alt="Close-up of an installed bronze bracket supporting the walnut shelf">
+          <figcaption>Figure 6. Installed bracket detail, showing the milled mounting faces
+          seated against the backboard and shelf.</figcaption>
           </figure>
         </div>
       </section>
 
       <nav class="pager" aria-label="Project navigation">
-        <a href="project-07.html">Previous: Tesla Coil</a>
-        <a href="project-09.html">Next: Physics 61L Rocket Project</a>
+        <a href="project-07.html">Previous: Miniature Tesla Coil from Salvaged Electronics</a>
+        <a href="project-09.html">Next: Toolbox and Hammer: Six Fabrication Processes (ME 103)</a>
       </nav>
 
     </div>
@@ -182,12 +308,12 @@
       <table class="spec-table">
         <caption>Project summary</caption>
         <tbody>
-          <tr><th scope="row">Category</th><td>Prototyping, Mechanical Design</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Category</th><td>Manufacturing, Prototyping</td></tr>
+          <tr><th scope="row">Timeframe</th><td>Winter Quarter 2026</td></tr>
+          <tr><th scope="row">Context</th><td>ME 103, Product Realization: Design and Making</td></tr>
+          <tr><th scope="row">Team</th><td>Solo</td></tr>
+          <tr><th scope="row">My focus</th><td>Full scope: design, machining, casting, finishing, assembly</td></tr>
+          <tr><th scope="row">Processes</th><td>Turning, sand casting, milling, woodworking, patination</td></tr>
         </tbody>
       </table>
     </aside>

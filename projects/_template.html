@@ -31,11 +31,22 @@
 
   <header class="project-head">
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
+    <!-- Tag text lives in THREE places that must agree: this list, the matching
+         card in index.html, and the Category row in the side panel below. Each
+         tag must also appear either in the GROUPS table in script.js or in that
+         file's UNFILTERED list, or it logs a console warning. -->
     <ul class="tags">
       <li class="tag">[Category]</li>
     </ul>
     <h1>[New project title]</h1>
     <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <!-- Figure 1 sits here rather than in the figures block, so the page opens
+         with an image instead of prose. Use the same file as this project's card
+         on the home page; both crop 16:10, so one export serves both. -->
+    <figure class="project-hero">
+      <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
+      <figcaption>Figure 1. [Add the best photo of the finished thing, and a caption.]</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -142,6 +153,19 @@
           <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
           <li>[Add failure mode found and how the design or process changed because of it]</li>
         </ul>
+        <h3>Limitations</h3>
+        <!-- Every written page on this site has one of these. Name what the work
+             does not show: analysis not run, loads not tested, data lost, a
+             number you cannot stand behind, work a teammate owned. A reader
+             spots these in seconds anyway, and naming them first reads as
+             judgment rather than omission. -->
+        <ul>
+          <li>[What the analysis does not cover, and why]</li>
+          <li>[What was never tested, or tested only once]</li>
+          <li>[Any number here you would not defend, and what is missing to defend it]</li>
+          <li>[Which parts were a teammate's work rather than yours]</li>
+        </ul>
+
         <h3>What I took from it</h3>
         <p>[Two or three sentences on what you learned or would do differently. Keep it
           concrete and engineering-focused.]</p>
@@ -149,18 +173,16 @@
 
       <section>
         <h2>Figures</h2>
+        <!-- Numbering continues from the hero figure above, which is number one.
+             Add or delete figures freely, but keep the numbers sequential. -->
         <div class="figure-grid">
           <figure>
             <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+            <figcaption>Figure 2. [Add CAD image and caption.]</figcaption>
           </figure>
           <figure>
             <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
-          </figure>
-          <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+            <figcaption>Figure 3. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
           </figure>
           <figure>
             <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
@@ -170,7 +192,7 @@
       </section>
 
       <nav class="pager" aria-label="Project navigation">
-        <a href="project-10.html">Previous: AA 103 Research Paper</a>
+        <a href="project-09.html">Previous: Toolbox and Hammer: Six Fabrication Processes (ME 103)</a>
         <span></span>
       </nav>
 

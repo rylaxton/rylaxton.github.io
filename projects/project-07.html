@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tesla Coil &mdash; Ryan Laxton</title>
-  <meta name="description" content="[One-sentence summary of this project.]">
+  <title>Miniature Tesla Coil from Salvaged Electronics &mdash; Ryan Laxton</title>
+  <meta name="description" content="A battery-powered miniature Tesla coil built around a high-voltage circuit salvaged from a bug-zapper racket, with a hand-wound secondary on PVC and an acrylic chassis. A self-taught high-voltage electronics project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -33,10 +33,18 @@
     <a class="backlink" href="../index.html#projects">Back to all projects</a>
     <ul class="tags">
       <li class="tag">Electrical System Design</li>
-      <li class="tag">Test Engineering</li>
+      <li class="tag">Prototyping</li>
     </ul>
-    <h1>Tesla Coil</h1>
-    <p class="lead">[One-sentence summary: what the system was and what you did on it.]</p>
+    <h1>Miniature Tesla Coil from Salvaged Electronics</h1>
+    <p class="lead">A battery-powered miniature Tesla coil built around a high-voltage circuit
+      salvaged from a bug-zapper racket, with a hand-wound secondary on PVC pipe and a chassis of
+      acrylic and hardware-store parts. Entirely self-taught, with no coursework behind it.</p>
+    <figure class="project-hero">
+      <img src="../images/tesla-coil-final.jpg" alt="The finished miniature Tesla coil: red secondary winding on a PVC form with a brass topload, on an acrylic base">
+      <figcaption>Figure 1. The finished coil. Hand-wound secondary on PVC, brass drawer
+      knob as the topload, and the driver and switching hardware on acrylic plates
+      below.</figcaption>
+    </figure>
   </header>
 
   <div class="doc">
@@ -46,133 +54,228 @@
 
       <section>
         <h2>Project overview</h2>
-        <p>[Describe the system, product, experiment, or engineering problem in 3&ndash;5
-          sentences. What was it, what did it have to do, and where does it fit in a larger
-          assembly or process?]</p>
+        <p>A Tesla coil is a resonant air-core transformer. A driver circuit pushes pulses of
+          current through a primary winding of a few turns, that primary couples magnetically
+          into a secondary of many hundreds of turns, and the resonance between the secondary's
+          inductance and the capacitance of the electrode on top of it multiplies the voltage far
+          beyond what the turns ratio alone would give. The result is a high-frequency,
+          high-voltage output that produces visible discharge and can light a fluorescent tube
+          held nearby with no electrical connection at all.</p>
+        <p>I built a miniature one on a desktop scale. The high-voltage driver is the circuit
+          board out of an electric fly-swatter racket, which already contains a battery-powered
+          boost converter and a small step-up transformer, making it the cheapest high-voltage
+          supply available. The secondary is enameled magnet wire wound by hand onto PVC pipe, the
+          topload is a brass drawer knob, and the chassis is two acrylic plates on nylon
+          standoffs. Everything else came from a hardware store.</p>
+        <p>This was a self-directed learning project rather than an original design. No class I
+          had taken covered high-voltage or resonant circuit behaviour, and reading about it was
+          not the same as watching a coil come up on the bench. I worked from a published build as
+          my baseline, which is credited in the reference below.</p>
       </section>
 
       <section>
-        <h2>Objective and problem</h2>
-        <p>[State what needed to be designed, improved, tested, diagnosed, or validated, and
-          why it mattered. Include the constraints you were working inside: load, envelope,
-          budget, schedule, standard, or test condition.]</p>
+        <h2>Objective</h2>
+        <p>The goal was understanding, and the deliverable was a working coil. I wanted to get to
+          the point where high-voltage behaviour was something I had handled rather than something
+          I had read about &mdash; how a resonant circuit behaves, why winding consistency matters,
+          what a topload actually does, and what it feels like to work around a live
+          high-voltage output.</p>
         <ul>
-          <li>[Constraint or requirement 1]</li>
-          <li>[Constraint or requirement 2]</li>
-          <li>[Constraint or requirement 3]</li>
+          <li>Produce visible high-frequency high-voltage output from a battery supply</li>
+          <li>Build it entirely from salvaged and hardware-store parts</li>
+          <li>Keep it small enough to handle, transport, and demonstrate on a table</li>
+          <li>Package it so that the high-voltage sections are insulated from anything a person
+            touches, and so the structure itself provides no conductive path around the coil</li>
         </ul>
       </section>
 
       <section>
         <h2>My role</h2>
-        <p>[Describe your individual contribution. Be specific about what you owned versus
-          what the team did: which subsystem, which analysis, which test, which drawings.]</p>
+        <p>Solo, and self-taught. I sourced and salvaged the parts, reworked the driver board,
+          wound the secondary, built the chassis, assembled it, and brought it up.</p>
       </section>
 
       <section>
-        <h2>Engineering process</h2>
-        <!-- Delete any step that did not apply to this project. -->
+        <h2>Build process</h2>
         <ol class="process">
-          <li><strong>Requirements.</strong> [What requirements did you define or inherit, and from where?]</li>
-          <li><strong>Concept development.</strong> [How many concepts, and how did you choose between them?]</li>
-          <li><strong>Calculations.</strong> [Hand calculations, sizing, tolerance stack-up, FEA, circuit analysis.]</li>
-          <li><strong>CAD and component selection.</strong> [Models, assemblies, drawings, purchased parts and why.]</li>
-          <li><strong>Instrumentation and circuit design.</strong> [Sensors, signal chain, wiring, DAQ setup.]</li>
-          <li><strong>Prototype and fabrication.</strong> [How it was built, by what methods, in what shop.]</li>
-          <li><strong>Testing.</strong> [Test setup, conditions, number of runs, what was measured.]</li>
-          <li><strong>Troubleshooting and iteration.</strong> [Failure modes found, root causes, design changes made.]</li>
-          <li><strong>Validation.</strong> [How you confirmed the final design met the requirements.]</li>
+          <li><strong>Reference study.</strong> Worked through a published build to understand the
+            architecture before buying anything, so I knew what each part was for rather than
+            following a parts list.</li>
+          <li><strong>Driver salvage.</strong> A bug-zapper racket is a battery-powered
+            high-voltage supply that happens to be sold as a household product. I opened one,
+            removed the board, desoldered its original output connections, and soldered in my own
+            leads so I could drive the coil with it.</li>
+          <li><strong>Secondary winding.</strong> Wound enameled magnet wire onto a PVC form using
+            a winding jig, with electrical tape bands marking the start and end of the winding.
+            The winding has to stay single-layer and tightly packed: gaps, overlaps, and crossed
+            turns all change the secondary's inductance, which moves the frequency the coil
+            resonates at and detunes it from the driver.</li>
+          <li><strong>Topload.</strong> Fitted a brass drawer knob at the top of the secondary.
+            The topload sets the capacitance at the high-voltage end, which together with the
+            secondary inductance determines the resonant frequency, and its smooth rounded surface
+            gives the discharge a controlled place to leave from instead of concentrating at a wire
+            end.</li>
+          <li><strong>Base circuit.</strong> Assembled the driver, a bank of high-voltage
+            components, and an adjustable gap formed between two brackets on threaded brass screws
+            onto the lower acrylic plate, with the primary connected to the coil at the base.
+            [Confirm the topology here &mdash; whether this is a spark-gap circuit with a
+            capacitor bank, and what the component values are.]</li>
+          <li><strong>Chassis.</strong> Built the frame from two acrylic plates separated by nylon
+            standoffs, with brass hardware. The material choice was deliberate rather than
+            aesthetic: acrylic and nylon are both insulators, so the structure holding the coil
+            does not offer a path around it.</li>
+          <li><strong>Bring-up and adjustment.</strong> Powered it up and adjusted until the output
+            was stable and repeatable rather than intermittent.</li>
+          <li><strong>Demonstration.</strong> Verified output by holding a compact fluorescent bulb
+            near the topload and watching it light with nothing connected to it. Handled the coil
+            only when unpowered, kept it away from other electronics, and kept a working distance
+            from the energized topload.</li>
         </ol>
       </section>
 
       <section>
         <h2>Technical details</h2>
 
-        <h3>Design requirements</h3>
+        <h3>Configuration</h3>
         <table class="spec-table">
-          <caption>Key requirements and measured values</caption>
+          <caption>As-built configuration</caption>
           <tbody>
-            <tr><th scope="row">[Requirement, e.g. design load]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. envelope]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. tolerance]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. accuracy]</th><td>[Add value and unit]</td></tr>
-            <tr><th scope="row">[Requirement, e.g. cycle life]</th><td>[Add value and unit]</td></tr>
+            <tr><th scope="row">Driver</th><td>High-voltage circuit salvaged from a bug-zapper racket</td></tr>
+            <tr><th scope="row">Supply</th><td>[Add battery type, count, and pack voltage]</td></tr>
+            <tr><th scope="row">Secondary form</th><td>PVC pipe, [add outside diameter and winding length]</td></tr>
+            <tr><th scope="row">Secondary winding</th><td>Enameled magnet wire, [add gauge and approximate turn count]</td></tr>
+            <tr><th scope="row">Topload</th><td>Brass drawer knob, [add diameter]</td></tr>
+            <tr><th scope="row">Primary</th><td>[Add turn count and wire]</td></tr>
+            <tr><th scope="row">Switching</th><td>Adjustable gap between two brackets on threaded brass screws</td></tr>
+            <tr><th scope="row">Chassis</th><td>Two acrylic plates on nylon standoffs, brass hardware</td></tr>
+            <tr><th scope="row">Overall height</th><td>[Add height]</td></tr>
+            <tr><th scope="row">Resonant frequency</th><td>[Add measured or calculated frequency]</td></tr>
+            <tr><th scope="row">Demonstrated output</th><td>Lights a compact fluorescent bulb held near the topload, unconnected</td></tr>
           </tbody>
         </table>
 
-        <h3>Analysis and calculations</h3>
+        <h3>What I learned about the physics by building it</h3>
         <ul>
-          <li>[Calculation performed and the result, e.g. stress, deflection, factor of safety]</li>
-          <li>[Assumptions and how you checked them]</li>
-          <li>[Add CAD or FEA image below in the figures section]</li>
+          <li>The voltage gain is not just the turns ratio. It comes from resonance, which is why
+            the coil only works properly when the secondary and topload resonate near the
+            frequency the driver is producing</li>
+          <li>Winding quality is an electrical parameter, not a cosmetic one. An uneven secondary
+            is a differently tuned secondary</li>
+          <li>The topload is a capacitor, and changing it retunes the whole coil</li>
+          <li>Output at these frequencies couples through air well enough to excite a gas in a
+            nearby tube, which is why the fluorescent bulb lights without contact</li>
         </ul>
 
-        <h3>Hardware, sensors, and test equipment</h3>
+        <h3>Materials and construction</h3>
         <ul>
-          <li>[Sensors and ranges]</li>
-          <li>[DAQ, power supplies, oscilloscope, multimeter, load frame, other equipment]</li>
-          <li>[Fixtures or test stands you built]</li>
+          <li>Salvaged: the complete high-voltage driver board from a consumer bug-zapper
+            racket</li>
+          <li>Hardware store: PVC pipe and end caps, brass drawer knob, acrylic sheet, nylon
+            standoffs, brass and steel fasteners</li>
+          <li>Purchased: enameled magnet wire and a winding jig</li>
+          <li>Insulating materials chosen throughout the load-bearing structure</li>
         </ul>
 
-        <h3>Materials and manufacturing</h3>
+        <h3>Tools</h3>
         <ul>
-          <li>[Materials and why they were selected]</li>
-          <li>[Manufacturing methods: machining, 3D printing, sheet metal, welding, assembly]</li>
+          <li>Soldering iron and desoldering for the driver rework</li>
+          <li>Coil winding jig</li>
+          <li>Hand tools for the acrylic chassis</li>
         </ul>
 
-        <h3>Software and tools</h3>
-        <ul>
-          <li>[CAD, FEA, circuit, and data analysis software used]</li>
-          <li>[Scripts or code you wrote, and what they did]</li>
-        </ul>
-
-        <h3>Test procedure</h3>
-        <ol>
-          <li>[Setup and instrumentation check]</li>
-          <li>[Test conditions and loading or input steps]</li>
-          <li>[Data recorded, sample rate, number of runs]</li>
-          <li>[Pass or fail criteria]</li>
-        </ol>
+        <h3>Reference</h3>
+        <p>Design baseline:
+          <a href="https://www.youtube.com/watch?v=zbV1zyg_4qU">this published mini Tesla coil
+            build</a>. The architecture and part selection follow it; the construction,
+          winding, chassis, and assembly are mine.</p>
       </section>
 
       <section>
         <h2>Results</h2>
         <ul>
-          <li>[Add quantitative performance result, with units]</li>
-          <li>[Add test result: accuracy, efficiency, repeatability, or margin against requirement]</li>
-          <li>[Add improvement: weight, cost, cycle time, reliability, number of iterations]</li>
-          <li>[Add failure mode found and how the design or process changed because of it]</li>
+          <li>The coil works. It produces stable high-frequency high-voltage output from a battery
+            supply and lights a compact fluorescent bulb held near the topload with no connection
+            to it, which is the clearest available demonstration that the output is both high
+            voltage and high frequency</li>
+          <li>I taught myself an area no course had covered, by building rather than reading, and
+            came out able to reason about resonance, coupling, and topload capacitance as physical
+            things rather than equations</li>
+          <li>Repurposed a consumer product's circuit for a completely different function, which
+            required understanding what the board actually did well enough to rewire its
+            output</li>
+          <li>Built a package where the material choices serve the electrical requirement:
+            insulating chassis, insulating standoffs, and an adjustable gap rather than a fixed
+            one</li>
         </ul>
-        <h3>What I took from it</h3>
-        <p>[Two or three sentences on what you learned or would do differently. Keep it
-          concrete and engineering-focused.]</p>
+
+        <h3>What this project is not</h3>
+        <ul>
+          <li>It is a reference build, not an original design. The architecture came from a
+            published project and I have said so</li>
+          <li>I did no analysis. I never calculated the expected resonant frequency from the
+            secondary inductance and topload capacitance, and never measured the actual
+            frequency</li>
+          <li>I did not record the turn count or wire gauge, which means I cannot reproduce my own
+            coil from my own documentation &mdash; the single most useful lesson to come out of
+            it</li>
+          <li>Output was verified qualitatively, by the fluorescent bulb and by visible discharge,
+            with no measurement of arc length, current draw, or power</li>
+        </ul>
+
+        <h3>What I would do to finish it properly</h3>
+        <p>There is an afternoon of work that would turn this from a build into an experiment:
+          count the turns and measure the wire gauge, calculate the predicted resonant frequency
+          from the secondary inductance and topload capacitance, then measure the actual frequency
+          with an oscilloscope and a small pickup coil and compare the two. Add current draw at
+          the battery and a measured arc length, and the page would have numbers in it instead of
+          adjectives. I know how to do that now in a way I did not when I built it, which is
+          itself the point of having built it.</p>
       </section>
 
       <section>
         <h2>Figures</h2>
+        <!-- Videos live in a videos/ folder at the top level, posters in images/. -->
         <div class="figure-grid">
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 1. [Add CAD image and caption.]</figcaption>
+          <video controls preload="metadata">
+          <source src="../videos/tesla-coil-cfl-demo.mp4" type="video/mp4">
+          <a href="../videos/tesla-coil-cfl-demo.mp4">Download the video</a>
+          </video>
+          <figcaption>Figure 2. A compact fluorescent bulb held near the energized topload
+          lights with nothing connected to it &mdash; the output is coupling through air into
+          the gas in the tube.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 2. [Add schematic, wiring diagram, or test setup photo.]</figcaption>
+          <img src="../images/tesla-coil-winding.jpg" alt="Partially wound secondary on PVC pipe beside a spool of enameled magnet wire on a winding jig">
+          <figcaption>Figure 3. Winding the secondary. Tape bands mark the winding bounds, and
+          the turns are kept single-layer and tight because the winding sets the
+          inductance.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 3. [Add prototype or as-built photo.]</figcaption>
+          <img src="../images/tesla-coil-driver.jpg" alt="Soldering leads onto the high-voltage circuit board salvaged from a bug-zapper racket">
+          <figcaption>Figure 4. Reworking the salvaged driver board, replacing the racket's
+          original output connections with leads for the coil.</figcaption>
           </figure>
           <figure>
-            <img src="../images/placeholder.svg" alt="[Describe this image for screen readers]">
-            <figcaption>Figure 4. [Add test data plot or results table.]</figcaption>
+          <img src="../images/tesla-coil-base.jpg" alt="Close-up of the base showing the driver board, high-voltage components, and the adjustable gap between two brackets">
+          <figcaption>Figure 5. Base detail. The adjustable gap sits between two brackets on
+          threaded brass screws, so the spacing can be tuned rather than fixed at
+          build time.</figcaption>
+          </figure>
+          <figure>
+          <video controls preload="metadata">
+          <source src="../videos/tesla-coil-dark.mp4" type="video/mp4">
+          <a href="../videos/tesla-coil-dark.mp4">Download the video</a>
+          </video>
+          <figcaption>Figure 6. Running in a darkened room, with the discharge at the base
+          visible.</figcaption>
           </figure>
         </div>
       </section>
 
       <nav class="pager" aria-label="Project navigation">
-        <a href="project-06.html">Previous: Thrust Stand</a>
-        <a href="project-08.html">Next: ME 102 Record Player</a>
+        <a href="project-06.html">Previous: GROOVA: Hand-Cranked Turntable Mechanism (ME 102)</a>
+        <a href="project-08.html">Next: Walnut and Bronze Key Shelf (ME 103)</a>
       </nav>
 
     </div>
@@ -182,12 +285,12 @@
       <table class="spec-table">
         <caption>Project summary</caption>
         <tbody>
-          <tr><th scope="row">Category</th><td>Electrical System Design, Test Engineering</td></tr>
-          <tr><th scope="row">Timeframe</th><td>[Month Year]</td></tr>
-          <tr><th scope="row">Context</th><td>[Coursework, internship, work, personal]</td></tr>
-          <tr><th scope="row">Team</th><td>[Solo or team of N]</td></tr>
-          <tr><th scope="row">My focus</th><td>[Your main responsibility]</td></tr>
-          <tr><th scope="row">Tools</th><td>[Key software and equipment]</td></tr>
+          <tr><th scope="row">Category</th><td>Electrical System Design, Prototyping</td></tr>
+          <tr><th scope="row">Timeframe</th><td>[Add month and year]</td></tr>
+          <tr><th scope="row">Context</th><td>Personal project, self-taught</td></tr>
+          <tr><th scope="row">Team</th><td>Solo</td></tr>
+          <tr><th scope="row">My focus</th><td>Full scope: salvage, winding, assembly, bring-up</td></tr>
+          <tr><th scope="row">Tools</th><td>Soldering iron, coil winder, hand tools</td></tr>
         </tbody>
       </table>
     </aside>
