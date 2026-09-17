@@ -49,15 +49,30 @@
   <section class="band band--tint" id="about">
     <div class="wrap">
       <div class="section-head"><h2>About</h2></div>
-      <div class="prose">
-        <!-- Edit these two paragraphs freely. Keep them factual. -->
-        <p>I am an engineer who works across mechanical design, electrical systems, testing,
-          prototyping, and hands-on troubleshooting. My projects span the full path from
-          requirements and concept development through CAD, component selection, fabrication,
-          instrumentation, and test.</p>
-        <p>[Add 2&ndash;4 sentences in your own words: the kind of engineering work you are
-          strongest at, the environments you have worked in (coursework, internship, lab,
-          shop, industry), and the type of role you are looking for.]</p>
+      <div class="about">
+        <div class="prose">
+          <!-- Two paragraphs. Keep them factual; every claim here should be
+               backed by a project page. -->
+          <p>I work on hardware: mechanical design, electrical systems, instrumentation, and the
+            testing that tells you whether any of it actually worked. My projects run the full path
+            from requirements and concept development through CAD, component selection,
+            fabrication, and test, and the pages here are written to show that path rather than
+            only the finished object.</p>
+          <p>I am studying Mechanical Engineering at Stanford, class of 2027. Most of my work has
+            been hardware-facing: a welded steel thrust stand for a 300&nbsp;lbf liquid engine that
+            has been in service for cold-flow testing since early 2026, a jacketing retention clip
+            designed and prototyped end to end during an internship at SkyCool Systems, and a
+            sequence of projects through the Product Realization Lab covering casting, machining,
+            sheet metal, and welding. At Cardinal Propulsion Lab I [am / was] Test and GSE Co-Lead,
+            where the work is test setups, instrumentation, and ground electronics. I am looking
+            for [internship / new grad] roles in experimental engineering and test systems,
+            hardware development and prototyping, instrumentation and data acquisition, mechanical
+            systems design and validation, or energy and propulsion.</p>
+        </div>
+        <figure class="about-figure">
+          <img src="images/ryan-engine-test.jpg" alt="Ryan Laxton speaking into a handheld radio during a rocket engine test">
+          <figcaption>[Add context: which test this was, and when.]</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -67,22 +82,24 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Engineering projects</h2>
-        <p>Ten projects across mechanical design, electrical systems, test engineering, and
-          propulsion. Each page covers the problem, my role, the engineering process,
-          technical details, and results.</p>
+        <p>Work across mechanical design, electrical systems, test engineering, and propulsion.
+          Each page covers the problem, my role, the engineering process, technical details,
+          results, and what the work does not show.</p>
       </div>
 
       <!-- Filter buttons. Each data-filter value must match a key in the GROUPS
            table at the top of script.js. Which projects appear under a button is
-           decided by the visible tag text on each card below. -->
+           decided by the visible tag text on each card below.
+           Card order here is the display order, and matches the file numbers. -->
       <div class="filters" role="group" aria-label="Filter projects by discipline">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="filter" type="button" data-filter="mechanical" aria-pressed="false">Mechanical</button>
+        <button class="filter" type="button" data-filter="manufacturing" aria-pressed="false">Manufacturing</button>
         <button class="filter" type="button" data-filter="electrical" aria-pressed="false">Electrical</button>
         <button class="filter" type="button" data-filter="test" aria-pressed="false">Test</button>
         <button class="filter" type="button" data-filter="propulsion" aria-pressed="false">Propulsion</button>
       </div>
-      <p class="filter-count" id="filter-count" aria-live="polite">Showing all 10 projects</p>
+      <p class="filter-count" id="filter-count" aria-live="polite">Showing all projects</p>
 
       <ul class="project-grid" id="project-grid">
       <li class="card">
@@ -97,14 +114,32 @@
             <li class="tag">Propulsion Systems</li>
           </ul>
           <h3>Cardinal Propulsion Lab Electrical Ground System</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <p>[One-sentence summary: write this once the page is drafted.]</p>
           <a class="btn" href="projects/project-01.html">View project</a>
         </div>
       </li>
 
       <li class="card">
         <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+          <img src="images/thrust-stand-built.jpg" alt="The welded steel thrust stand as fabricated">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Mechanical Design</li>
+            <li class="tag">Test Engineering</li>
+            <li class="tag">Propulsion Systems</li>
+          </ul>
+          <h3>300 lbf Liquid Engine Thrust Stand</h3>
+          <p>A welded steel stand for a 300&nbsp;lbf liquid bipropellant engine, taken from requirements
+            through trade studies, hand analysis, FEA, and a scaled prototype to fabricated hardware
+            now in service for cold-flow testing.</p>
+          <a class="btn" href="projects/project-02.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <figure class="card-figure">
+          <img src="images/spring-clip-installed.jpg" alt="Spring clip installed on jacketed PVC pipe">
         </figure>
         <div class="card-body">
           <ul class="tags">
@@ -113,14 +148,16 @@
             <li class="tag">Test Engineering</li>
           </ul>
           <h3>SkyCool Systems PVC Jacketing Spring Clip</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
-          <a class="btn" href="projects/project-02.html">View project</a>
+          <p>An extrudable plastic clip that retains jacketing on 2.5&nbsp;in nominal PVC pipe, sized from
+            a closed-form bending model and a MATLAB design sweep, then checked in FEA and across
+            six printed prototypes.</p>
+          <a class="btn" href="projects/project-03.html">View project</a>
         </div>
       </li>
 
       <li class="card">
         <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+          <img src="images/me104-machine.jpg" alt="The assembled machine: printed tripod frame with an aluminum lever and side-mounted motor">
         </figure>
         <div class="card-body">
           <ul class="tags">
@@ -129,111 +166,96 @@
             <li class="tag">Prototyping</li>
             <li class="tag">Test Engineering</li>
           </ul>
-          <h3>ME 104 Final Project</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
-          <a class="btn" href="projects/project-03.html">View project</a>
-        </div>
-      </li>
-
-      <li class="card">
-        <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
-        </figure>
-        <div class="card-body">
-          <ul class="tags">
-            <li class="tag">Manufacturing</li>
-          </ul>
-          <h3>ME 103 Final Project</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <h3>Motor-Driven Impulse Machine (ME 104)</h3>
+          <p>A 153&nbsp;g lever machine that delivered 1,214&nbsp;N&middot;s of impulse to two separating
+            surfaces, designed by characterizing the supplied DC motor and holding it at its maximum
+            power point for the full stroke.</p>
           <a class="btn" href="projects/project-04.html">View project</a>
         </div>
       </li>
 
       <li class="card">
         <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+          <img src="images/spring-lever-cad.png" alt="CAD render of the spring-lever mechanism: two tubular legs, a lever arm at the top, and an extension spring on the diagonal">
         </figure>
         <div class="card-body">
           <ul class="tags">
-            <li class="tag">Manufacturing</li>
+            <li class="tag">Mechanical Design</li>
+            <li class="tag">Prototyping</li>
+            <li class="tag">Test Engineering</li>
           </ul>
-          <h3>ME 103 Hammer and Toolbox Manufacturing</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <h3>53 g Spring-Lever Mechanism (ME 104)</h3>
+          <p>A 53&nbsp;g lever-and-spring mechanism built to hold a 4,000&nbsp;N/m force response across a
+            50&nbsp;mm stroke, which reached 186&nbsp;N of a required 200&nbsp;N with most of the
+            error traced to 13&nbsp;mm of spring slack.</p>
           <a class="btn" href="projects/project-05.html">View project</a>
         </div>
       </li>
 
       <li class="card">
         <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
-        </figure>
-        <div class="card-body">
-          <ul class="tags">
-            <li class="tag">Mechanical Design</li>
-            <li class="tag">Test Engineering</li>
-          </ul>
-          <h3>Thrust Stand</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
-          <a class="btn" href="projects/project-06.html">View project</a>
-        </div>
-      </li>
-
-      <li class="card">
-        <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
-        </figure>
-        <div class="card-body">
-          <ul class="tags">
-            <li class="tag">Electrical System Design</li>
-            <li class="tag">Test Engineering</li>
-          </ul>
-          <h3>Tesla Coil</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
-          <a class="btn" href="projects/project-07.html">View project</a>
-        </div>
-      </li>
-
-      <li class="card">
-        <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+          <img src="images/groova-final.jpg" alt="The finished hand-cranked turntable: acrylic enclosure with a black platter, horn arm, and side crank">
         </figure>
         <div class="card-body">
           <ul class="tags">
             <li class="tag">Prototyping</li>
             <li class="tag">Mechanical Design</li>
           </ul>
-          <h3>ME 102 Record Player</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <h3>GROOVA: Hand-Cranked Turntable Mechanism (ME 102)</h3>
+          <p>A hand-cranked turntable built around an 1868 mechanism for drill feed motion, developed
+            through three prototypes, each with a written driver question and success metrics agreed
+            before it was built.</p>
+          <a class="btn" href="projects/project-06.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <figure class="card-figure">
+          <img src="images/tesla-coil-final.jpg" alt="The finished Tesla coil: hand-wound secondary on PVC with a brass topload, on an acrylic base">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Electrical System Design</li>
+            <li class="tag">Prototyping</li>
+          </ul>
+          <h3>Miniature Tesla Coil from Salvaged Electronics</h3>
+          <p>A battery-powered coil built around a high-voltage circuit salvaged from a bug-zapper
+            racket, with a hand-wound secondary on PVC pipe and a chassis of acrylic and
+            hardware-store parts. Entirely self-taught.</p>
+          <a class="btn" href="projects/project-07.html">View project</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <figure class="card-figure">
+          <img src="images/me103-shelf-hero.jpg" alt="The finished walnut key shelf mounted on a wall, with bronze brackets and knobs">
+        </figure>
+        <div class="card-body">
+          <ul class="tags">
+            <li class="tag">Manufacturing</li>
+            <li class="tag">Prototyping</li>
+          </ul>
+          <h3>Walnut and Bronze Key Shelf (ME 103)</h3>
+          <p>A wall-mounted shelf in live-edge walnut with lathe-turned phosphor bronze knobs and
+            sand-cast silicon bronze brackets, spanning turning, foundry work, milling,
+            woodworking, and patination.</p>
           <a class="btn" href="projects/project-08.html">View project</a>
         </div>
       </li>
 
       <li class="card">
         <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
+          <img src="images/me103-toolbox-hammer.jpg" alt="Completed sheet metal toolbox holding the hammer, with the turned wooden handle alongside">
         </figure>
         <div class="card-body">
           <ul class="tags">
-            <li class="tag">Propulsion Systems</li>
-            <li class="tag">Test Engineering</li>
+            <li class="tag">Manufacturing</li>
           </ul>
-          <h3>Physics 61L Rocket Project</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
+          <h3>Toolbox and Hammer: Six Fabrication Processes (ME 103)</h3>
+          <p>Two artifacts built to print and graded against a written defect list, including
+            oxyacetylene corners that had to pass as welded, since grinding them was itself a
+            deduction.</p>
           <a class="btn" href="projects/project-09.html">View project</a>
-        </div>
-      </li>
-
-      <li class="card">
-        <figure class="card-figure">
-          <img src="images/placeholder.svg" alt="[Describe this image for screen readers]">
-        </figure>
-        <div class="card-body">
-          <ul class="tags">
-            <li class="tag">Propulsion Systems</li>
-          </ul>
-          <h3>AA 103 Research Paper</h3>
-          <p>[One-sentence summary of the project: what it is and what you did.]</p>
-          <a class="btn" href="projects/project-10.html">View project</a>
         </div>
       </li>
       </ul>
@@ -283,12 +305,12 @@
         <div class="skill-card">
           <h3>Software and tools</h3>
           <ul>
-            <li>[CAD software, e.g. SolidWorks]</li>
-            <li>[Analysis or FEA software]</li>
-            <li>[Programming languages]</li>
-            <li>[Data analysis tools]</li>
-            <li>[Test or DAQ software]</li>
-            <li>[Lab equipment you are fluent with]</li>
+            <li>Fusion 360 for CAD, assemblies, and drawings</li>
+            <li>Fusion 360 simulation for FEA</li>
+            <li>MATLAB</li>
+            <li>Python</li>
+            <li>Fiji for image-based measurement</li>
+            <li>[DAQ and test software &mdash; add from the Cardinal Propulsion Lab work]</li>
           </ul>
         </div>
       </div>

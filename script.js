@@ -16,11 +16,17 @@
 
 (function () {
   var GROUPS = {
-    mechanical: ["Mechanical Design", "Prototyping", "Manufacturing", "Electromechanical"],
-    electrical: ["Electrical System Design", "Electromechanical"],
-    test:       ["Test Engineering"],
-    propulsion: ["Propulsion Systems"]
+    mechanical:    ["Mechanical Design"],
+    manufacturing: ["Manufacturing"],
+    electrical:    ["Electrical System Design", "Electromechanical"],
+    test:          ["Test Engineering"],
+    propulsion:    ["Propulsion Systems"]
   };
+
+  /* Tags that appear on cards but deliberately have no button, because they
+     sit on most projects and so would not narrow anything. Listed here so the
+     console stays quiet and nobody mistakes them for a typo.                 */
+  var UNFILTERED = ["Prototyping"];
 
   var buttons = document.querySelectorAll('.filter');
   var cards = document.querySelectorAll('#project-grid .card');
@@ -30,6 +36,8 @@
   function norm(text) {
     return text.replace(/\s+/g, ' ').trim().toLowerCase();
   }
+
+  var unfiltered = UNFILTERED.map(norm);
 
   // Invert the table above into: tag name -> the filters it belongs to.
   var tagLookup = {};
@@ -48,8 +56,11 @@
     Array.prototype.forEach.call(card.querySelectorAll('.tag'), function (el) {
       var matches = tagLookup[norm(el.textContent)];
       if (!matches) {
-        console.warn('No filter covers the tag "' + el.textContent.trim() +
-                     '". Add it to the GROUPS table in script.js.');
+        if (unfiltered.indexOf(norm(el.textContent)) === -1) {
+          console.warn('No filter covers the tag "' + el.textContent.trim() +
+                       '". Add it to the GROUPS table in script.js, or to ' +
+                       'UNFILTERED if it is meant to have no button.');
+        }
         return;
       }
       matches.forEach(function (group) {
@@ -84,4 +95,8 @@
       apply(btn.dataset.filter);
     });
   });
+
+  // Run once on load so the count in index.html can never go stale as
+  // projects are added or removed.
+  apply('all');
 })();

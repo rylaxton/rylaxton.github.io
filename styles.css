@@ -193,6 +193,41 @@ p:last-child { margin-bottom: 0; }
 
 .prose p { margin-bottom: 1.1rem; }
 
+/* Text column plus a portrait figure. Stacks to text-then-photo on narrow
+   screens; the photo sits in the right margin from 900px up, matching the
+   spec panel on the project pages. */
+
+.about {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .about { grid-template-columns: minmax(0, 1fr) 20rem; }
+}
+
+.about-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+}
+.about-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.about-figure figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.925rem;
+  color: var(--ink-2);
+}
+
 /* --- project filters ----------------------------------------------------- */
 
 .filters {
@@ -380,9 +415,39 @@ p:last-child { margin-bottom: 0; }
   padding-bottom: 4rem;
 }
 
+/* On narrow screens the summary table leads, so the key facts land directly
+   under the lead instead of after the whole article. From 900px up it returns
+   to the right margin and sticks while the article scrolls. */
+.doc-aside { order: -1; }
+
 @media (min-width: 900px) {
   .doc { grid-template-columns: minmax(0, 1fr) 17rem; }
-  .doc-aside { position: sticky; top: 2rem; align-self: start; }
+  .doc-aside { order: 0; position: sticky; top: 2rem; align-self: start; }
+}
+
+/* Hero figure, directly under the lead. This is Figure 1, lifted out of the
+   figures block so every page opens with one image instead of prose alone.
+   Same 16:10 crop as the home page card, so one export serves both. */
+
+.project-hero {
+  margin: 1.75rem 0 0;
+  max-width: 46rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+}
+.project-hero img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.project-hero figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.925rem;
+  color: var(--ink-2);
 }
 
 .doc-main > section { margin-bottom: clamp(2.25rem, 4vw, 3rem); }
@@ -480,6 +545,13 @@ p:last-child { margin-bottom: 0; }
   background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
+.figure-grid video {
+  width: 100%;
+  display: block;
+  background: #0d0f11;
+  border-bottom: 1px solid var(--line);
+}
+
 .figure-grid figcaption {
   padding: 0.8rem 1rem;
   font-size: 0.925rem;
